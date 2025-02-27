@@ -104,7 +104,7 @@ export const ApiRequest = (props: ApiRequestType) => {
 export const apiRequestMeta: CodeComponentMeta<ApiRequestType> = {
     name: "ApiRequest",
     displayName: "Angel/ApiRequest",
-    importPath: "@/components/angel/ApiRequest",
+    importPath: "@/angel/ApiRequest",
     figmaMappings: [{ figmaComponentName: "ApiRequest" }],
     props: {
         method: {
