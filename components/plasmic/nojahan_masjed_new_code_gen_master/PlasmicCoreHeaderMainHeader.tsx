@@ -202,7 +202,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return JSON.parse(localStorage.getItem("AuthorizationDetail"));
+              return (() => {})();
             } catch (e) {
               if (
                 e instanceof TypeError ||
