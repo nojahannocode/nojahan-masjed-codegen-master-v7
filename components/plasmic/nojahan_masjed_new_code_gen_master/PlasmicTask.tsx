@@ -1059,7 +1059,7 @@ function PlasmicTask__RenderFunc(props: {
                                         ? (() => {
                                             const actionArgs = {
                                               args: [
-                                                "DELETE",
+                                                "POST",
                                                 "https://noapi.darkube.app/webhook/cancel_task",
                                                 (() => {
                                                   try {

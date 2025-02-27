@@ -1446,12 +1446,12 @@
           "projectId": "x5n9pjkHvzguzBipVWhAiz",
           "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskEdit.tsx",
           "importSpec": {
-            "modulePath": "../pages/admin/[taskId]/task/edit.tsx"
+            "modulePath": "../pages/admin/edittask/[taskId].tsx"
           },
           "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskEdit.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/admin/[taskId]/task/edit"
+          "path": "/admin/edittask/[taskId]"
         }
       ],
       "icons": [

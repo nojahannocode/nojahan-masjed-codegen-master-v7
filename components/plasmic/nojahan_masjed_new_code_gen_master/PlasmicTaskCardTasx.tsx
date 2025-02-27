@@ -468,7 +468,7 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
                 $steps["goToAdminTaskEditTask"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/admin/${(() => {
+                        destination: `/admin/edittask/${(() => {
                           try {
                             return $props.taskId;
                           } catch (e) {
@@ -480,7 +480,7 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
                             }
                             throw e;
                           }
-                        })()}/task/edit`
+                        })()}`
                       };
                       return (({ destination }) => {
                         if (
