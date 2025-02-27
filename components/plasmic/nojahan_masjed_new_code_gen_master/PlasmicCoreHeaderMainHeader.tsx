@@ -620,6 +620,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
                 }
               }}
+              style={{ cursor: "pointer" }}
             >
               <Icon12Icon
                 className={classNames(projectcss.all, sty.svg__zGQli)}
@@ -700,6 +701,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
                 }
               }}
+              style={{ cursor: "pointer" }}
             >
               <Icon14Icon
                 className={classNames(projectcss.all, sty.svg___7Nyk)}
@@ -745,11 +747,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__yQ4,
-                  "cursor-pointer"
-                )}
+                className={classNames(projectcss.all, sty.freeBox__yQ4)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -854,6 +852,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                     ];
                   }
                 }}
+                style={{ cursor: "pointer" }}
               >
                 <Icon13Icon
                   className={classNames(projectcss.all, sty.svg__sh4QO)}
