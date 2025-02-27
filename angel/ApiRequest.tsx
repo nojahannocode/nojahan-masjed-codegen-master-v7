@@ -155,7 +155,7 @@ export const apiRequestMeta: CodeComponentMeta<ApiRequestType> = {
             defaultValue: [
                 {
                     type: "text",
-                    value: "Loading...",
+                    value: "در حال بررسی اطلاعات ...",
                 },
             ],
         },

@@ -15,11 +15,9 @@ export interface GlobalContextsProviderProps {
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   angelProps?: Partial<Omit<React.ComponentProps<typeof Angel>, "children">>;
 }
 
@@ -85,7 +83,7 @@ export default function GlobalContextsProvider(
       loadingText={
         antdConfigProviderProps && "loadingText" in antdConfigProviderProps
           ? antdConfigProviderProps.loadingText!
-          : undefined
+          : "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
       }
       removeLoading={
         antdConfigProviderProps && "removeLoading" in antdConfigProviderProps
