@@ -930,7 +930,11 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                             return {
                               mobile: $state.mobile.value,
                               otp: $state.otp.value,
-                              role: $props.roleProp
+                              role: $props.roleProp,
+                              first_name: $state.firstName.value,
+                              last_name: $state.lastName.value,
+                              gender: $state.gender.value,
+                              birth_year: $state.birthYear.value
                             };
                           } catch (e) {
                             if (
