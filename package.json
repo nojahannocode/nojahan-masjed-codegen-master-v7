@@ -19,6 +19,7 @@
     "@plasmicpkgs/plasmic-query": "^0.0.230",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.205",
     "@plasmicpkgs/react-aria": "^0.0.118",
+    "@plasmicpkgs/react-quill": "^1.0.72",
     "@plasmicpkgs/react-twitter-widgets": "^0.0.209",
     "@plasmicpkgs/tiptap": "^0.0.3",
     "@tiptap/core": "^2.11.5",

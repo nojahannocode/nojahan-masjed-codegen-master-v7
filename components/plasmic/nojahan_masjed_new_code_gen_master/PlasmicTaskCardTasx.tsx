@@ -465,9 +465,23 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
               onClick={async () => {
                 const $steps = {};
 
-                $steps["goToAdminEditTask"] = true
+                $steps["goToAdminTaskEditTask"] = true
                   ? (() => {
-                      const actionArgs = {};
+                      const actionArgs = {
+                        destination: `/admin/${(() => {
+                          try {
+                            return $props.taskId;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}/task/edit`
+                      };
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&
@@ -483,12 +497,12 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["goToAdminEditTask"] != null &&
-                  typeof $steps["goToAdminEditTask"] === "object" &&
-                  typeof $steps["goToAdminEditTask"].then === "function"
+                  $steps["goToAdminTaskEditTask"] != null &&
+                  typeof $steps["goToAdminTaskEditTask"] === "object" &&
+                  typeof $steps["goToAdminTaskEditTask"].then === "function"
                 ) {
-                  $steps["goToAdminEditTask"] = await $steps[
-                    "goToAdminEditTask"
+                  $steps["goToAdminTaskEditTask"] = await $steps[
+                    "goToAdminTaskEditTask"
                   ];
                 }
               }}

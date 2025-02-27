@@ -439,7 +439,7 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__d3Np)}>
               {(() => {
                 try {
-                  return !$state.auth;
+                  return !!$$.me()?.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -727,9 +727,7 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
 
                   $steps["goToHome"] = true
                     ? (() => {
-                        const actionArgs = {
-                          destination: `/admin/activities2`
-                        };
+                        const actionArgs = { destination: `/admin/activities` };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -808,31 +806,6 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox__soJce)}
                 onClick={async event => {
                   const $steps = {};
-
-                  $steps["goToChat"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/chat` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToChat"] != null &&
-                    typeof $steps["goToChat"] === "object" &&
-                    typeof $steps["goToChat"].then === "function"
-                  ) {
-                    $steps["goToChat"] = await $steps["goToChat"];
-                  }
 
                   $steps["updateDrawerOpen"] = true
                     ? (() => {

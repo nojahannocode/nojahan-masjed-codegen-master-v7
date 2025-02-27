@@ -1414,17 +1414,44 @@
         },
         {
           "id": "70uW4VfZf5uQ",
-          "name": "AdminTaskAddTask",
+          "name": "AdminTaskAdd",
           "type": "managed",
           "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAddTask.tsx",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAdd.tsx",
           "importSpec": {
-            "modulePath": "../pages/admin/task/add-task.tsx"
+            "modulePath": "../pages/admin/[activityId]/task/add.tsx"
           },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAddTask.module.css",
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAdd.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/admin/task/add-task"
+          "path": "/admin/[activityId]/task/add"
+        },
+        {
+          "id": "2jqcHHkVgsbR",
+          "name": "Label2",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicLabel2.tsx",
+          "importSpec": {
+            "modulePath": "Label2.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicLabel2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "b4-9lC1F14Pg",
+          "name": "AdminTaskEdit",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskEdit.tsx",
+          "importSpec": {
+            "modulePath": "../pages/admin/[taskId]/task/edit.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskEdit.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/admin/[taskId]/task/edit"
         }
       ],
       "icons": [

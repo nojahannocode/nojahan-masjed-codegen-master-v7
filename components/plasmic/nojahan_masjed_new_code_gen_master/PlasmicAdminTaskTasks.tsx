@@ -284,9 +284,23 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
             onClick={async () => {
               const $steps = {};
 
-              $steps["goToAdminAddNewTask"] = true
+              $steps["goToAdminTaskAddTask"] = true
                 ? (() => {
-                    const actionArgs = {};
+                    const actionArgs = {
+                      destination: `/admin/${(() => {
+                        try {
+                          return $state.listTasks.data[0].activity_id;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}/task/add`
+                    };
                     return (({ destination }) => {
                       if (
                         typeof destination === "string" &&
@@ -302,12 +316,12 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["goToAdminAddNewTask"] != null &&
-                typeof $steps["goToAdminAddNewTask"] === "object" &&
-                typeof $steps["goToAdminAddNewTask"].then === "function"
+                $steps["goToAdminTaskAddTask"] != null &&
+                typeof $steps["goToAdminTaskAddTask"] === "object" &&
+                typeof $steps["goToAdminTaskAddTask"].then === "function"
               ) {
-                $steps["goToAdminAddNewTask"] = await $steps[
-                  "goToAdminAddNewTask"
+                $steps["goToAdminTaskAddTask"] = await $steps[
+                  "goToAdminTaskAddTask"
                 ];
               }
             }}
@@ -508,7 +522,7 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return "";
+                      return $state.listTasks.data[0].activity_name;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

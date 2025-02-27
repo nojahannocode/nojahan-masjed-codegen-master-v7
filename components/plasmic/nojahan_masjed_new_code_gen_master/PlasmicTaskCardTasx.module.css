@@ -378,6 +378,7 @@
   height: 15px;
   color: var(--token-9RAsiUKZDixW);
   margin-top: 0px;
+  margin-left: 0px;
   flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
