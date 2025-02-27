@@ -398,7 +398,7 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                     const actionArgs = {
                       args: [
                         "POST",
-                        "https://nojapi.darkube.app/webhook/auth/otp",
+                        "https://noapi.darkube.app/webhook/auth/otp",
                         undefined,
                         (() => {
                           try {
@@ -431,15 +431,15 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 $steps["sendOtp"] = await $steps["sendOtp"];
               }
 
-              $steps["updateMobileValue"] = true
+              $steps["updateLoginDetail"] = $steps.sendOtp?.data?.status
                 ? (() => {
                     const actionArgs = {
                       variable: {
                         objRoot: $state,
-                        variablePath: ["mobile", "value"]
+                        variablePath: ["loginDetail"]
                       },
                       operation: 0,
-                      value: 2222222
+                      value: $steps.sendOtp?.data
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -453,11 +453,40 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["updateMobileValue"] != null &&
-                typeof $steps["updateMobileValue"] === "object" &&
-                typeof $steps["updateMobileValue"].then === "function"
+                $steps["updateLoginDetail"] != null &&
+                typeof $steps["updateLoginDetail"] === "object" &&
+                typeof $steps["updateLoginDetail"].then === "function"
               ) {
-                $steps["updateMobileValue"] = await $steps["updateMobileValue"];
+                $steps["updateLoginDetail"] = await $steps["updateLoginDetail"];
+              }
+
+              $steps["updateStepVerify"] = $steps.sendOtp?.data?.status
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["stepVerify"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateStepVerify"] != null &&
+                typeof $steps["updateStepVerify"] === "object" &&
+                typeof $steps["updateStepVerify"].then === "function"
+              ) {
+                $steps["updateStepVerify"] = await $steps["updateStepVerify"];
               }
             }}
           >
@@ -884,6 +913,72 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
             className={classNames("__wab_instance", sty.checkOtpBtn)}
             onClick={async () => {
               const $steps = {};
+
+              $steps["verifyOtp"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://noapi.darkube.app/webhook/auth/otp/verify",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              mobile: $state.mobile.value,
+                              otp: $state.otp.value,
+                              role: $props.roleProp
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Angel.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["verifyOtp"] != null &&
+                typeof $steps["verifyOtp"] === "object" &&
+                typeof $steps["verifyOtp"].then === "function"
+              ) {
+                $steps["verifyOtp"] = await $steps["verifyOtp"];
+              }
+
+              $steps["saveToken"] = $steps.verifyOtp?.data.status
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (typeof localStorage !== "undefined") {
+                            return localStorage.setItem(
+                              "auth",
+                              JSON.stringify($steps.verifyOtp?.data)
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["saveToken"] != null &&
+                typeof $steps["saveToken"] === "object" &&
+                typeof $steps["saveToken"].then === "function"
+              ) {
+                $steps["saveToken"] = await $steps["saveToken"];
+              }
             }}
           >
             <div
