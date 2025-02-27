@@ -7,6 +7,7 @@ import {
     GlobalContextMeta,
 } from "@plasmicapp/host";
 import axios from "axios";
+import {me} from "@/angel/me";
 
 type AngelProps = React.PropsWithChildren<{
     previewApiConfig: Record<string, any>;
@@ -29,6 +30,8 @@ export const Angel = ({
     const changeTheme = (color: string) => {
         document.documentElement.style.setProperty("--primary", color);
     };
+
+
 
     const actions = useMemo(
         () => ({
