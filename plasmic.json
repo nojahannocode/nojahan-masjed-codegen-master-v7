@@ -1599,7 +1599,7 @@
           "id": "ROItC2WG7mWi",
           "name": "ApiRequest",
           "displayName": "ApiRequest",
-          "componentImportPath": "@/components/angel/ApiRequest"
+          "componentImportPath": "@/angel/ApiRequest"
         },
         {
           "id": "7GNkZwsLFH0v",
