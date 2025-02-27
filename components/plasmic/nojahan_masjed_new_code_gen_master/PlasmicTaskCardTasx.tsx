@@ -467,33 +467,7 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
 
                 $steps["goToAdminEditTask"] = true
                   ? (() => {
-                      const actionArgs = {
-                        destination: `/task/${(() => {
-                          try {
-                            return $ctx.params.activityId;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/${(() => {
-                          try {
-                            return $props.taskId;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}/edit`
-                      };
+                      const actionArgs = {};
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&

@@ -1175,20 +1175,6 @@
           "componentType": "component"
         },
         {
-          "id": "sUOGL7yBlxF-",
-          "name": "AdminAddNewTask",
-          "type": "managed",
-          "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminAddNewTask.tsx",
-          "importSpec": {
-            "modulePath": "../pages/[activityId]/task/add.tsx"
-          },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminAddNewTask.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/[activityId]/task/add"
-        },
-        {
           "id": "Tm95Yqly1EMg",
           "name": "AuthLoginComponent",
           "type": "managed",
@@ -1227,20 +1213,6 @@
           "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicMessageChatComponent.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "RZFuUqAUZxw0",
-          "name": "AdminEditTask",
-          "type": "managed",
-          "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminEditTask.tsx",
-          "importSpec": {
-            "modulePath": "../pages/task/[activityId]/[taskId]/edit.tsx"
-          },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminEditTask.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/task/[activityId]/[taskId]/edit"
         },
         {
           "id": "KN7IYHQF1AEV",

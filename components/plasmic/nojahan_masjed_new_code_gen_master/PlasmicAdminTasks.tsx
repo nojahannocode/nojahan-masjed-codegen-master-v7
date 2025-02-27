@@ -312,21 +312,7 @@ function PlasmicAdminTasks__RenderFunc(props: {
 
               $steps["goToAdminAddNewTask"] = true
                 ? (() => {
-                    const actionArgs = {
-                      destination: `/${(() => {
-                        try {
-                          return $ctx.params.activityId;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}/task/add`
-                    };
+                    const actionArgs = {};
                     return (({ destination }) => {
                       if (
                         typeof destination === "string" &&
