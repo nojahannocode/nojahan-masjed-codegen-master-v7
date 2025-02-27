@@ -435,6 +435,35 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 $steps["sendOtp"] = await $steps["sendOtp"];
               }
 
+              $steps["saveResponse"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["httpOtpDetailVar"]
+                      },
+                      operation: 0,
+                      value: $steps.sendOtp?.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["saveResponse"] != null &&
+                typeof $steps["saveResponse"] === "object" &&
+                typeof $steps["saveResponse"].then === "function"
+              ) {
+                $steps["saveResponse"] = await $steps["saveResponse"];
+              }
+
               $steps["updateLoginDetail"] = $steps.sendOtp?.data?.status
                 ? (() => {
                     const actionArgs = {
@@ -491,6 +520,74 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 typeof $steps["updateStepVerify"].then === "function"
               ) {
                 $steps["updateStepVerify"] = await $steps["updateStepVerify"];
+              }
+
+              $steps["showErrorMessage"] = !$steps.sendOtp?.data?.status
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "error",
+                        (() => {
+                          try {
+                            return $state.httpOtpDetailVar?.message;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["showErrorMessage"] != null &&
+                typeof $steps["showErrorMessage"] === "object" &&
+                typeof $steps["showErrorMessage"].then === "function"
+              ) {
+                $steps["showErrorMessage"] = await $steps["showErrorMessage"];
+              }
+
+              $steps["invokeGlobalAction"] = $steps.sendOtp?.data?.status
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "success",
+                        (() => {
+                          try {
+                            return $state.httpOtpDetailVar?.message;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
               }
             }}
           >
@@ -988,23 +1085,25 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 $steps["saveToken"] = await $steps["saveToken"];
               }
 
-              $steps["goToTaskUser"] = !!($$.me()?.user?.role === "user")
-                ? (() => {
-                    const actionArgs = { destination: `/` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["goToTaskUser"] =
+                !!$steps.verifyOtp?.data?.status &&
+                !!($$.me()?.user?.role === "user")
+                  ? (() => {
+                      const actionArgs = { destination: `/` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["goToTaskUser"] != null &&
                 typeof $steps["goToTaskUser"] === "object" &&
@@ -1013,25 +1112,25 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 $steps["goToTaskUser"] = await $steps["goToTaskUser"];
               }
 
-              $steps["goToAdminActivityActivitesListest"] = !!(
-                $$.me()?.user?.role === "admin"
-              )
-                ? (() => {
-                    const actionArgs = { destination: `/admin/activities` };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
-                      }
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["goToAdminActivityActivitesListest"] =
+                !!$steps.verifyOtp?.data?.status &&
+                !!($$.me()?.user?.role === "admin")
+                  ? (() => {
+                      const actionArgs = { destination: `/admin/activities` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["goToAdminActivityActivitesListest"] != null &&
                 typeof $steps["goToAdminActivityActivitesListest"] ===
@@ -1041,6 +1140,107 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
               ) {
                 $steps["goToAdminActivityActivitesListest"] = await $steps[
                   "goToAdminActivityActivitesListest"
+                ];
+              }
+
+              $steps["updateHttpOtpDetailVar"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["httpOtpDetailVar"]
+                      },
+                      operation: 0,
+                      value: $steps.verifyOtp?.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateHttpOtpDetailVar"] != null &&
+                typeof $steps["updateHttpOtpDetailVar"] === "object" &&
+                typeof $steps["updateHttpOtpDetailVar"].then === "function"
+              ) {
+                $steps["updateHttpOtpDetailVar"] = await $steps[
+                  "updateHttpOtpDetailVar"
+                ];
+              }
+
+              $steps["invokeGlobalAction"] = $steps.verifyOtp?.data?.status
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "success",
+                        (() => {
+                          try {
+                            return $state.httpOtpDetailVar?.message;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["invokeGlobalAction2"] = !$steps.verifyOtp?.data?.status
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "error",
+                        (() => {
+                          try {
+                            return $state.httpOtpDetailVar?.message;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions[
+                      "plasmic-antd5-config-provider.showNotification"
+                    ]?.apply(null, [...actionArgs.args]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
                 ];
               }
             }}
