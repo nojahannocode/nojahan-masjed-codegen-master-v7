@@ -337,6 +337,7 @@ function PlasmicCoreHeaderSubHeader__RenderFunc(props: {
                   $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
                 }
               }}
+              style={{ cursor: "pointer" }}
             >
               <Icon12Icon
                 className={classNames(projectcss.all, sty.svg__oheFa)}
@@ -417,6 +418,7 @@ function PlasmicCoreHeaderSubHeader__RenderFunc(props: {
                   $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
                 }
               }}
+              style={{ cursor: "pointer" }}
             >
               <Icon14Icon
                 className={classNames(projectcss.all, sty.svg__wFq1Z)}
@@ -565,6 +567,7 @@ function PlasmicCoreHeaderSubHeader__RenderFunc(props: {
                     ];
                   }
                 }}
+                style={{ cursor: "pointer" }}
               >
                 <Icon13Icon
                   className={classNames(projectcss.all, sty.svg__jmeJq)}

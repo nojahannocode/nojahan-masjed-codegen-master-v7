@@ -1452,6 +1452,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/admin/edittask/[taskId]"
+        },
+        {
+          "id": "nh1uMIuDKJ_h",
+          "name": "SidebarMenuComponent",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicSidebarMenuComponent.tsx",
+          "importSpec": {
+            "modulePath": "SidebarMenuComponent.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicSidebarMenuComponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

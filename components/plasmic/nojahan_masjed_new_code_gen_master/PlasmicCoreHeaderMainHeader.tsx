@@ -633,6 +633,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__xLtAg
                 )}
+                style={{ cursor: "pointer" }}
               >
                 {"\u062e\u0627\u0646\u0647"}
               </div>
@@ -714,6 +715,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__jAegb
                 )}
+                style={{ cursor: "pointer" }}
               >
                 {
                   "\u06af\u0641\u062a\u200c\u0648\u06af\u0648 \u0628\u0627 \u0627\u0645\u0627\u0645 \u062c\u0645\u0627\u0639\u062a"
@@ -863,9 +865,9 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__rG4E,
-                    "cursor-pointer"
+                    sty.text__rG4E
                   )}
+                  style={{ cursor: "pointer" }}
                 >
                   {
                     "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc\n"
