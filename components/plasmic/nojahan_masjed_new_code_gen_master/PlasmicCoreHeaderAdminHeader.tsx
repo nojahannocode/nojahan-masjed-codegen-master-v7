@@ -1170,43 +1170,28 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["goToPage"] = true
+              $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
-                      destination: (() => {
-                        try {
-                          return window.history.back();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                      customFunction: async () => {
+                        return (() => {
+                          if (typeof window !== "undefined") {
+                            return window.history.back();
                           }
-                          throw e;
-                        }
-                      })()
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
+                        })();
                       }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["goToPage"] != null &&
-                typeof $steps["goToPage"] === "object" &&
-                typeof $steps["goToPage"].then === "function"
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
               ) {
-                $steps["goToPage"] = await $steps["goToPage"];
+                $steps["runCode"] = await $steps["runCode"];
               }
             }}
             role={"img"}

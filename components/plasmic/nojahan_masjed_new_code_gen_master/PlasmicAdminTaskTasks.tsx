@@ -289,7 +289,7 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
                     const actionArgs = {
                       destination: `/admin/${(() => {
                         try {
-                          return $state.listTasks.data[0].activity_id;
+                          return $ctx.params.activityId;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
