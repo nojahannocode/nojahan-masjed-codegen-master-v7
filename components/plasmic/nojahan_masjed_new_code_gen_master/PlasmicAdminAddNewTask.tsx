@@ -433,7 +433,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField___1M7PI
+                      sty.formField__aukDb
                     )}
                     hidden={true}
                     initialValue={undefined}
@@ -443,7 +443,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdInputNumber
                       className={classNames(
                         "__wab_instance",
-                        sty.numberInput___3ElTy
+                        sty.numberInput__qLYlz
                       )}
                       type={"number"}
                     />
@@ -451,7 +451,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__odoHm
+                      sty.formField__oqvk0
                     )}
                     initialValue={undefined}
                     label={
@@ -460,13 +460,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     name={"title"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__wcx2X)}
+                      className={classNames("__wab_instance", sty.input__ctMwC)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__ytuM
+                      sty.formField__plMz
                     )}
                     initialValue={undefined}
                     label={"\u062a\u0648\u0636\u06cc\u062d\u0627\u062a"}
@@ -476,14 +476,14 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdTextArea
                       className={classNames(
                         "__wab_instance",
-                        sty.textArea__oAu7
+                        sty.textArea__dFdYa
                       )}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__fS0Ro
+                      sty.formField__t2Mco
                     )}
                     label={
                       "\u0645\u062a\u0646 \u0631\u0627\u0647\u0646\u0645\u0627"
@@ -494,14 +494,14 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdTextArea
                       className={classNames(
                         "__wab_instance",
-                        sty.textArea__juyu4
+                        sty.textArea__tih4L
                       )}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__aoAgg
+                      sty.formField___04C7Q
                     )}
                     hidden={true}
                     initialValue={(() => {
@@ -521,13 +521,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     name={"created_at"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__gMrpW)}
+                      className={classNames("__wab_instance", sty.input__b2I32)}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__ptRDt
+                      sty.formField___14Cts
                     )}
                     hidden={true}
                     initialValue={"active"}
@@ -537,7 +537,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdSelect
                       className={classNames(
                         "__wab_instance",
-                        sty.select__nKKhi
+                        sty.select__kJocr
                       )}
                       defaultStylesClassName={classNames(
                         projectcss.root_reset,
@@ -563,13 +563,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                         return __composite;
                       })()}
                       placeholder={"Select..."}
-                      popupScopeClassName={sty["select__nKKhi__popup"]}
+                      popupScopeClassName={sty["select__kJocr__popup"]}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__q18Em
+                      sty.formField__xE0Sf
                     )}
                     hidden={true}
                     initialValue={5}
@@ -579,7 +579,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdInputNumber
                       className={classNames(
                         "__wab_instance",
-                        sty.numberInput__c13Z9
+                        sty.numberInput___0Xjq0
                       )}
                       type={"number"}
                     />
@@ -587,7 +587,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__oqqoC
+                      sty.formField__klOd5
                     )}
                     hidden={true}
                     initialValue={5}
@@ -597,7 +597,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdInputNumber
                       className={classNames(
                         "__wab_instance",
-                        sty.numberInput__bfIFe
+                        sty.numberInput__hqs6G
                       )}
                       type={"number"}
                     />
@@ -605,7 +605,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__aGspr
+                      sty.formField__kfCob
                     )}
                     hidden={true}
                     initialValue={1}
@@ -615,7 +615,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdInputNumber
                       className={classNames(
                         "__wab_instance",
-                        sty.numberInput___4Ano5
+                        sty.numberInput__ih1Be
                       )}
                       type={"number"}
                     />
@@ -623,7 +623,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__f2X1J
+                      sty.formField__dunKs
                     )}
                     initialValue={``}
                     label={
@@ -634,7 +634,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdSelect
                       className={classNames(
                         "__wab_instance",
-                        sty.select___33YPr
+                        sty.select__q7OAi
                       )}
                       defaultStylesClassName={classNames(
                         projectcss.root_reset,
@@ -668,13 +668,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                         return __composite;
                       })()}
                       placeholder={"Select..."}
-                      popupScopeClassName={sty["select___33YPr__popup"]}
+                      popupScopeClassName={sty["select__q7OAi__popup"]}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__oy5Uz
+                      sty.formField___69X9J
                     )}
                     label={
                       "\u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc"
@@ -684,7 +684,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdSelect
                       className={classNames(
                         "__wab_instance",
-                        sty.select__zBbYf
+                        sty.select___8RYr
                       )}
                       defaultStylesClassName={classNames(
                         projectcss.root_reset,
@@ -716,13 +716,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                         return __composite;
                       })()}
                       placeholder={"Select..."}
-                      popupScopeClassName={sty["select__zBbYf__popup"]}
+                      popupScopeClassName={sty["select___8RYr__popup"]}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__tEkhI
+                      sty.formField__quQfa
                     )}
                     label={"\u062c\u0646\u0633\u06cc\u062a"}
                     name={"gender"}
@@ -730,7 +730,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     <AntdSelect
                       className={classNames(
                         "__wab_instance",
-                        sty.select__byQyZ
+                        sty.select__nkl5S
                       )}
                       defaultStylesClassName={classNames(
                         projectcss.root_reset,
@@ -754,13 +754,13 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                         return __composite;
                       })()}
                       placeholder={"Select..."}
-                      popupScopeClassName={sty["select__byQyZ__popup"]}
+                      popupScopeClassName={sty["select__nkl5S__popup"]}
                     />
                   </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
-                      sty.formField__vd2Yr
+                      sty.formField__qSipi
                     )}
                     hidden={true}
                     initialValue={(() => {
@@ -780,11 +780,11 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                     name={"activity_id"}
                   >
                     <AntdInput
-                      className={classNames("__wab_instance", sty.input__gt5ZD)}
+                      className={classNames("__wab_instance", sty.input__aETdf)}
                     />
                   </FormItemWrapper>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button__dZ1Fr)}
+                    className={classNames("__wab_instance", sty.button___1HJ7)}
                     submitsForm={true}
                     type={"primary"}
                   >
@@ -792,7 +792,7 @@ function PlasmicAdminAddNewTask__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__bu7P7
+                        sty.text__kgELo
                       )}
                     >
                       {

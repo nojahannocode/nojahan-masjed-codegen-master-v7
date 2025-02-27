@@ -621,10 +621,3 @@
   max-width: 100%;
   margin: 0px;
 }
-.goftinoChat:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  width: 50px;
-  justify-self: flex-start;
-  height: 50px;
-}
