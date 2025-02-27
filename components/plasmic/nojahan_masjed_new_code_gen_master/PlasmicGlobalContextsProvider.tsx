@@ -8,22 +8,24 @@ import * as React from "react";
 import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
 import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
+import { Angel } from "@/angel/Angel"; // plasmic-import: 7GNkZwsLFH0v/codeComponent
 
 export interface GlobalContextsProviderProps {
   children?: React.ReactElement;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
+  angelProps?: Partial<Omit<React.ComponentProps<typeof Angel>, "children">>;
 }
 
 export default function GlobalContextsProvider(
   props: GlobalContextsProviderProps
 ) {
-  const { children, antdConfigProviderProps, embedCssProps } = props;
+  const { children, antdConfigProviderProps, embedCssProps, angelProps } =
+    props;
 
   return (
     <AntdConfigProvider
@@ -126,7 +128,27 @@ export default function GlobalContextsProvider(
             : "@font-face {\r\n  font-family: 'iransans' ;\r\n  src: url('https://site-assets.plasmic.app/df14582918ca379a280e453bb3cc6ba5.woff');\r\n}\r\n*{\r\n  font-family: iransans !important;\r\n  direction: rtl;\r\n}"
         }
       >
-        {children}
+        <Angel
+          {...angelProps}
+          apiConfig={
+            angelProps && "apiConfig" in angelProps
+              ? angelProps.apiConfig!
+              : undefined
+          }
+          previewApiConfig={
+            angelProps && "previewApiConfig" in angelProps
+              ? angelProps.previewApiConfig!
+              : undefined
+          }
+          primaryColor={
+            angelProps && "primaryColor" in angelProps
+              ? angelProps.primaryColor!
+              : "#000000"
+          }
+          rtl={angelProps && "rtl" in angelProps ? angelProps.rtl! : undefined}
+        >
+          {children}
+        </Angel>
       </EmbedCss>
     </AntdConfigProvider>
   );

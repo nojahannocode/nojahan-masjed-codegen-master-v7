@@ -167,6 +167,8 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -390,6 +392,73 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
             className={classNames("__wab_instance", sty.sendOtpBtn)}
             onClick={async () => {
               const $steps = {};
+
+              $steps["sendOtp"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://nojapi.darkube.app/webhook/auth/otp",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              mobile: $state.mobile.value,
+                              role: $props.roleProp
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Angel.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["sendOtp"] != null &&
+                typeof $steps["sendOtp"] === "object" &&
+                typeof $steps["sendOtp"].then === "function"
+              ) {
+                $steps["sendOtp"] = await $steps["sendOtp"];
+              }
+
+              $steps["updateMobileValue"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["mobile", "value"]
+                      },
+                      operation: 0,
+                      value: 111
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateMobileValue"] != null &&
+                typeof $steps["updateMobileValue"] === "object" &&
+                typeof $steps["updateMobileValue"].then === "function"
+              ) {
+                $steps["updateMobileValue"] = await $steps["updateMobileValue"];
+              }
             }}
           >
             <div

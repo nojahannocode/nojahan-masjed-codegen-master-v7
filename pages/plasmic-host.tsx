@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/host';
+import {ApiRequest, apiRequestMeta} from "@/angel/ApiRequest";
+import {Angel, angelMeta} from "@/angel/Angel";
+import {registerGlobalContext} from "@plasmicapp/host";
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
@@ -9,6 +12,8 @@ import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // registerComponent(...)
+registerGlobalContext(Angel, angelMeta);
+registerComponent(ApiRequest, apiRequestMeta);
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;

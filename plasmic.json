@@ -1594,6 +1594,18 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "ROItC2WG7mWi",
+          "name": "ApiRequest",
+          "displayName": "ApiRequest",
+          "componentImportPath": "@/components/angel/ApiRequest"
+        },
+        {
+          "id": "7GNkZwsLFH0v",
+          "name": "Angel",
+          "displayName": "Angel",
+          "componentImportPath": "@/angel/Angel"
         }
       ],
       "customFunctions": []
