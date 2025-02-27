@@ -485,7 +485,7 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__tpMcu
+                        sty.formField__t1Sg4
                       )}
                       label={
                         "\u0646\u0627\u0645 \u0641\u0639\u0627\u0644\u06cc\u062a"
@@ -506,7 +506,7 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__xaVcY
+                        sty.formField__vfnDf
                       )}
                       initialValue={"male"}
                       label={"\u062c\u0646\u0633\u06cc\u062a"}
@@ -515,7 +515,7 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                       <AntdSelect
                         className={classNames(
                           "__wab_instance",
-                          sty.select__idyQ
+                          sty.select__km76S
                         )}
                         defaultStylesClassName={classNames(
                           projectcss.root_reset,
@@ -541,13 +541,13 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                           return __composite;
                         })()}
                         placeholder={"Select..."}
-                        popupScopeClassName={sty["select__idyQ__popup"]}
+                        popupScopeClassName={sty["select__km76S__popup"]}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__lcjIi
+                        sty.formField__lt9Z
                       )}
                       initialValue={"active"}
                       label={"\u0648\u0636\u0639\u06cc\u062a"}
@@ -556,7 +556,7 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                       <AntdSelect
                         className={classNames(
                           "__wab_instance",
-                          sty.select___0Bn43
+                          sty.select___9G5Xq
                         )}
                         defaultStylesClassName={classNames(
                           projectcss.root_reset,
@@ -580,13 +580,13 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                           return __composite;
                         })()}
                         placeholder={"Select..."}
-                        popupScopeClassName={sty["select___0Bn43__popup"]}
+                        popupScopeClassName={sty["select___9G5Xq__popup"]}
                       />
                     </FormItemWrapper>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__iD4Rh
+                        sty.button__eZbZu
                       )}
                       submitsForm={true}
                       type={"primary"}
@@ -595,7 +595,7 @@ function PlasmicAdminActivityActivitesListest__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__cjum
+                          sty.text__whdSy
                         )}
                       >
                         {

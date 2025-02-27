@@ -1608,7 +1608,22 @@
           "componentImportPath": "@/angel/Angel"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [
+        {
+          "defaultExport": false,
+          "id": "getLocalStorageValue",
+          "importPath": "@/angel/getLocalStorageValue",
+          "name": "getLocalStorageValue",
+          "namespace": null
+        },
+        {
+          "defaultExport": false,
+          "id": "me",
+          "importPath": "@/angel/me",
+          "name": "me",
+          "namespace": null
+        }
+      ]
     }
   ],
   "globalVariants": {

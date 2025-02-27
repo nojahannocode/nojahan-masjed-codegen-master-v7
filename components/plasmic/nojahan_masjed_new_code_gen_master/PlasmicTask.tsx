@@ -90,6 +90,8 @@ import sty from "./PlasmicTask.module.css"; // plasmic-import: C6rVWRwZMhHZ/css
 
 import Icon9Icon from "./icons/PlasmicIcon__Icon9"; // plasmic-import: YW8jW_7M2k9A/icon
 
+import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
+
 createPlasmicElementProxy;
 
 export type PlasmicTask__VariantMembers = {};
@@ -127,7 +129,9 @@ export type PlasmicTask__OverridesType = {
 
 export interface DefaultTaskProps {}
 
-const $$ = {};
+const $$ = {
+  me: __fn_me
+};
 
 function useNextRouter() {
   try {
@@ -546,23 +550,27 @@ function PlasmicTask__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__s0Kid
-                  )}
-                  dir={"rtl"}
+                  className={classNames(projectcss.all, sty.freeBox___18Dun)}
                 >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ fontWeight: 700 }}
-                    >
-                      {
-                        "\u0645\u0633\u0626\u0648\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0645\u0646"
-                      }
-                    </span>
-                  </React.Fragment>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__s0Kid
+                    )}
+                    dir={"rtl"}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ fontWeight: 700 }}
+                      >
+                        {
+                          "\u0645\u0633\u0626\u0648\u0644\u06cc\u062a\u200c\u0647\u0627\u06cc \u0645\u0646"
+                        }
+                      </span>
+                    </React.Fragment>
+                  </div>
                 </div>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
@@ -1171,22 +1179,74 @@ function PlasmicTask__RenderFunc(props: {
                   dir={"rtl"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mrqmd
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__fqNs)}
                   >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {
-                          "\u0645\u0633\u0626\u0648\u0644\u06cc\u062a\u200c\u0647\u0627"
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mrqmd
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "https://noapi.darkube.app/webhook/usertasks",
+                                  undefined,
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: { "x-token": $$.me()?.token }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions["Angel.apiRequest"]?.apply(
+                                null,
+                                [...actionArgs.args]
+                              );
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
                         }
-                      </span>
-                    </React.Fragment>
+                      }}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {
+                            "\u0645\u0633\u0626\u0648\u0644\u06cc\u062a\u200c\u0647\u0627"
+                          }
+                        </span>
+                      </React.Fragment>
+                    </div>
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__dVlO)}>
@@ -1197,6 +1257,21 @@ function PlasmicTask__RenderFunc(props: {
                       "__wab_instance",
                       sty.apiRequestGetTaskList
                     )}
+                    config={(() => {
+                      try {
+                        return {
+                          headers: { "X-token": $$.me("token") }
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                     errorDisplay={
                       <div
                         className={classNames(
@@ -1238,7 +1313,7 @@ function PlasmicTask__RenderFunc(props: {
                         "data"
                       ]).apply(null, eventArgs);
                     }}
-                    url={"https://nojapi.darkube.app/webhook/usertasks"}
+                    url={"https://noapi.darkube.app/webhook/usertasks"}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
