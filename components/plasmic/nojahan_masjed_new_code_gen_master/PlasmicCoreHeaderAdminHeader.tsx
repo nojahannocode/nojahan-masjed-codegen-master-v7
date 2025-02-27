@@ -83,6 +83,8 @@ import Icon13Icon from "./icons/PlasmicIcon__Icon13"; // plasmic-import: wumpzot
 import LogoNoSvgIcon from "./icons/PlasmicIcon__LogoNoSvg"; // plasmic-import: Bi9ZoqrIWUrr/icon
 import Icon15Icon from "./icons/PlasmicIcon__Icon15"; // plasmic-import: 6qMjah-m2ZUu/icon
 
+import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
+
 createPlasmicElementProxy;
 
 export type PlasmicCoreHeaderAdminHeader__VariantMembers = {};
@@ -119,7 +121,9 @@ export interface DefaultCoreHeaderAdminHeaderProps {
   className?: string;
 }
 
-const $$ = {};
+const $$ = {
+  me: __fn_me
+};
 
 function useNextRouter() {
   try {
@@ -305,7 +309,7 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
             footer={
               (() => {
                 try {
-                  return !$state.auth;
+                  return !$$.me()?.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -899,7 +903,7 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
               </div>
               {(() => {
                 try {
-                  return !!$state.auth;
+                  return !!$$.me()?.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -919,29 +923,14 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["logOut"] = true
-                      ? (() => {
-                          const actionArgs = { args: [] };
-                          return $globalActions[
-                            "AuthGlobalContext.logout"
-                          ]?.apply(null, [...actionArgs.args]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["logOut"] != null &&
-                      typeof $steps["logOut"] === "object" &&
-                      typeof $steps["logOut"].then === "function"
-                    ) {
-                      $steps["logOut"] = await $steps["logOut"];
-                    }
-
                     $steps["deleteLocalStorage"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return localStorage.removeItem(
-                                "AuthorizationDetail"
-                              );
+                              return (() => {
+                                if (typeof window !== "undefined")
+                                  return localStorage.removeItem("auth");
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -1040,7 +1029,7 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return !$state.auth;
+                  return !$$.me()?.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

@@ -1029,20 +1029,6 @@
       "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/plasmic.module.css",
       "components": [
         {
-          "id": "f_y1jkaXWwio",
-          "name": "AdminTasks",
-          "type": "managed",
-          "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTasks.tsx",
-          "importSpec": {
-            "modulePath": "../pages/admin/[activityId]/tasks.tsx"
-          },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTasks.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/admin/[activityId]/tasks"
-        },
-        {
           "id": "Z-xq9Q8TLpwd",
           "name": "PageLayout",
           "type": "managed",
@@ -1308,20 +1294,6 @@
           "componentType": "component"
         },
         {
-          "id": "VlMYCqzuHxtq",
-          "name": "AdminActivityActivitesListest",
-          "type": "managed",
-          "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitesListest.tsx",
-          "importSpec": {
-            "modulePath": "../pages/admin/activities.tsx"
-          },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitesListest.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/admin/activities"
-        },
-        {
           "id": "Q6PUMnlRXK0C",
           "name": "Label",
           "type": "managed",
@@ -1398,6 +1370,61 @@
           "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicCombobox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "f_y1jkaXWwio",
+          "name": "AdminTaskTasks",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskTasks.tsx",
+          "importSpec": {
+            "modulePath": "../pages/admin/[activityId]/tasks.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskTasks.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/admin/[activityId]/tasks"
+        },
+        {
+          "id": "VlMYCqzuHxtq",
+          "name": "AdminActivityActivitesList",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitesList.tsx",
+          "importSpec": {
+            "modulePath": "../pages/admin/activities.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitesList.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/admin/activities"
+        },
+        {
+          "id": "00BG3jmDg3a5",
+          "name": "Empty",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicEmpty.tsx",
+          "importSpec": {
+            "modulePath": "Empty.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicEmpty.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "70uW4VfZf5uQ",
+          "name": "AdminTaskAddTask",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAddTask.tsx",
+          "importSpec": {
+            "modulePath": "../pages/admin/task/add-task.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAddTask.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/admin/task/add-task"
         }
       ],
       "icons": [
@@ -1555,6 +1582,11 @@
           "id": "5hZD53HT3wtA",
           "name": "MaleSvgrepoCom2SvgIcon",
           "moduleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/icons/PlasmicIcon__MaleSvgrepoCom2Svg.tsx"
+        },
+        {
+          "id": "QiA0vX1k9VT1",
+          "name": "Icon17Icon",
+          "moduleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/icons/PlasmicIcon__Icon17.tsx"
         }
       ],
       "images": [

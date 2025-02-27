@@ -8,7 +8,7 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
-  background: #ffffff;
+  background: var(--token-LdJVC9VprRzJ);
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -18,7 +18,6 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-  border: 1px solid #ffffff;
 }
 .root > * {
   grid-column: 4;
@@ -324,6 +323,57 @@
   min-width: 0;
   padding: 10px;
 }
+.freeBox__fNlfQ {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.empty___0PvA:global(.__wab_instance) {
+  max-width: 100%;
+}
+.getListMyActiveList:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__fmKdk {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__u1KuI {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__tvZ0P {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__en0H3 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
 .task:global(.__wab_instance) {
   width: 100%;
   object-fit: cover;
@@ -383,6 +433,18 @@
   margin-bottom: 0px;
   align-self: center;
 }
+.freeBox__uSbd4 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 8px;
+}
 .text__do9Ic {
   font-weight: 400;
   font-size: 18px;
@@ -395,11 +457,31 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
+  text-decoration-line: none;
+  text-overflow: clip;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__do9Ic {
+    font-size: 14px;
+  }
+}
+.text__a1Emd {
+  font-weight: 400;
+  font-size: 18px;
+  font-family: var(--token-zGBu1PudpfuC);
+  font-style: normal;
+  color: #535353;
+  text-align: right;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none;
+  text-overflow: clip;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__a1Emd {
     font-size: 14px;
   }
 }
@@ -624,23 +706,6 @@
   min-width: 0;
   border-bottom: 1px none #c2c2c2;
 }
-.freeBox__dVlO {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  min-width: 0;
-  padding: 10px 1px 10px 0px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__dVlO {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-}
 .apiRequestGetTaskList:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -658,6 +723,44 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+}
+.text__gVmbf {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.freeBox__gYui4 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.empty__rcBD:global(.__wab_instance) {
+  max-width: 100%;
+}
+.freeBox__dVlO {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  min-width: 0;
+  padding: 10px 1px 10px 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__dVlO {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 .taskTaskCard:global(.__wab_instance) {
   max-width: 100%;

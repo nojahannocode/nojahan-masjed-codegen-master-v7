@@ -59,13 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
-
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
@@ -87,6 +80,8 @@ import sty from "./PlasmicTaskCardActivitie.module.css"; // plasmic-import: 8x-t
 import EditStreamlineTablerSvgIcon from "./icons/PlasmicIcon__EditStreamlineTablerSvg"; // plasmic-import: JHjItL2k5LM6/icon
 import FemaleSvgrepoComSvgIcon from "./icons/PlasmicIcon__FemaleSvgrepoComSvg"; // plasmic-import: rCOHyDWJuOrd/icon
 import MaleSvgrepoCom2SvgIcon from "./icons/PlasmicIcon__MaleSvgrepoCom2Svg"; // plasmic-import: 5hZD53HT3wtA/icon
+
+import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
 
 createPlasmicElementProxy;
 
@@ -150,7 +145,9 @@ export interface DefaultTaskCardActivitieProps {
   className?: string;
 }
 
-const $$ = {};
+const $$ = {
+  me: __fn_me
+};
 
 function useNextRouter() {
   try {
@@ -189,6 +186,8 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -294,8 +293,6 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantslyy4ZuIrWoht()
@@ -409,52 +406,66 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
             onFinish: async values => {
               const $steps = {};
 
-              $steps["httpPut"] = true
+              $steps["update"] = true
                 ? (() => {
                     const actionArgs = {
-                      dataOp: {
-                        sourceId: "hfKFoF6NHFakDLEE3BFPLz",
-                        opId: "d9fd08d1-32ef-47fd-b506-6609207a1d3a",
-                        userArgs: {
-                          params: [$props.id],
-                          headers: [$state.auth.token],
-                          body: [
-                            $state.form.value.name,
-                            $state.form.value.gender,
-                            $state.form.value.status
-                          ]
-                        },
-                        cacheKey: null,
-                        invalidatedKeys: [
-                          "3f11b462-3eb2-4a08-8032-3a636e6e7df7",
-                          "3f11b462-3eb2-4a08-8032-3a636e6e7df7"
-                        ],
-                        roleId: null
-                      }
+                      args: [
+                        "PUT",
+                        "https://noapi.darkube.app/webhook/activity",
+                        (() => {
+                          try {
+                            return {
+                              activity_id: $props?.id
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return $state?.form?.value;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return { headers: { "x-token": $$.me()?.token } };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
                     };
-                    return (async ({ dataOp, continueOnError }) => {
-                      try {
-                        const response = await executePlasmicDataOp(dataOp, {
-                          userAuthToken: dataSourcesCtx?.userAuthToken,
-                          user: dataSourcesCtx?.user
-                        });
-                        await plasmicInvalidate(dataOp.invalidatedKeys);
-                        return response;
-                      } catch (e) {
-                        if (!continueOnError) {
-                          throw e;
-                        }
-                        return e;
-                      }
-                    })?.apply(null, [actionArgs]);
+                    return $globalActions["Angel.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
                   })()
                 : undefined;
               if (
-                $steps["httpPut"] != null &&
-                typeof $steps["httpPut"] === "object" &&
-                typeof $steps["httpPut"].then === "function"
+                $steps["update"] != null &&
+                typeof $steps["update"] === "object" &&
+                typeof $steps["update"].then === "function"
               ) {
-                $steps["httpPut"] = await $steps["httpPut"];
+                $steps["update"] = await $steps["update"];
               }
 
               $steps["updateModalOpen"] = true
@@ -484,6 +495,31 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
                 typeof $steps["updateModalOpen"].then === "function"
               ) {
                 $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+              }
+
+              $steps["goTo"] = true
+                ? (() => {
+                    const actionArgs = { destination: `/admin/activities` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goTo"] != null &&
+                typeof $steps["goTo"] === "object" &&
+                typeof $steps["goTo"].then === "function"
+              ) {
+                $steps["goTo"] = await $steps["goTo"];
               }
             },
             onIsSubmittingChange: async (...eventArgs: any) => {

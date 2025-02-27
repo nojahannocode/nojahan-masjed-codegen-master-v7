@@ -77,6 +77,8 @@ import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: 1XX1FqE
 import Icon13Icon from "./icons/PlasmicIcon__Icon13"; // plasmic-import: wumpzot6JlJS/icon
 import LogoNoSvgIcon from "./icons/PlasmicIcon__LogoNoSvg"; // plasmic-import: Bi9ZoqrIWUrr/icon
 
+import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
+
 createPlasmicElementProxy;
 
 export type PlasmicCoreHeaderMainHeader__VariantMembers = {};
@@ -111,7 +113,9 @@ export interface DefaultCoreHeaderMainHeaderProps {
   className?: string;
 }
 
-const $$ = {};
+const $$ = {
+  me: __fn_me
+};
 
 function useNextRouter() {
   try {
@@ -297,10 +301,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
             <React.Fragment>
               {(() => {
                 try {
-                  return (
-                    !!$state?.auth?.token &&
-                    $state?.auth?.user?.role === "admin"
-                  );
+                  return !!$$.me()?.token && $$.me()?.user?.role === "admin";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -317,10 +318,10 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                     onClick={async () => {
                       const $steps = {};
 
-                      $steps["goToAdminActivityActivitiesList"] = true
+                      $steps["goToAdminActivityActivitesListest"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: `/admin/activities2`
+                              destination: `/admin/activities`
                             };
                             return (({ destination }) => {
                               if (
@@ -337,14 +338,14 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["goToAdminActivityActivitiesList"] != null &&
-                        typeof $steps["goToAdminActivityActivitiesList"] ===
+                        $steps["goToAdminActivityActivitesListest"] != null &&
+                        typeof $steps["goToAdminActivityActivitesListest"] ===
                           "object" &&
-                        typeof $steps["goToAdminActivityActivitiesList"]
+                        typeof $steps["goToAdminActivityActivitesListest"]
                           .then === "function"
                       ) {
-                        $steps["goToAdminActivityActivitiesList"] =
-                          await $steps["goToAdminActivityActivitiesList"];
+                        $steps["goToAdminActivityActivitesListest"] =
+                          await $steps["goToAdminActivityActivitesListest"];
                       }
                     }}
                   >
@@ -364,7 +365,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return !$state?.auth?.token;
+                  return !$$.me()?.token;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -501,7 +502,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__tNs5P)}>
             {(() => {
               try {
-                return !!$state?.auth?.token;
+                return !!$$.me()?.token;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -512,73 +513,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__hiOo0)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToHome"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToHome"] != null &&
-                    typeof $steps["goToHome"] === "object" &&
-                    typeof $steps["goToHome"].then === "function"
-                  ) {
-                    $steps["goToHome"] = await $steps["goToHome"];
-                  }
-
-                  $steps["updateDrawerOpen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["drawer", "open"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDrawerOpen"] != null &&
-                    typeof $steps["updateDrawerOpen"] === "object" &&
-                    typeof $steps["updateDrawerOpen"].then === "function"
-                  ) {
-                    $steps["updateDrawerOpen"] = await $steps[
-                      "updateDrawerOpen"
-                    ];
-                  }
-                }}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__hiOo0)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -589,10 +524,10 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state?.auth?.user?.first_name
-                          ? $state?.auth?.user?.first_name +
+                        return $$.me()?.user?.first_name
+                          ? $$.me()?.user?.first_name +
                               " " +
-                              $state?.auth?.user?.last_name
+                              $$.me()?.user?.last_name
                           : "";
                       } catch (e) {
                         if (
@@ -798,7 +733,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
             </div>
             {(() => {
               try {
-                return !!$state?.auth?.token;
+                return !!$$.me()?.token;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -838,9 +773,11 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return localStorage.removeItem(
-                              "AuthorizationDetail"
-                            );
+                            return (() => {
+                              if (typeof window !== "undefined") {
+                                return localStorage.removeItem("auth");
+                              }
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -939,7 +876,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return !$state?.auth?.token;
+                return !$$.me()?.token;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -1154,7 +1091,7 @@ function PlasmicCoreHeaderMainHeader__RenderFunc(props: {
           trigger={
             (() => {
               try {
-                return !$state?.auth?.token;
+                return !$$.me()?.token;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

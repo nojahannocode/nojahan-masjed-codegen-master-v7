@@ -2,25 +2,25 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
-import GlobalContextsProvider from "../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicGlobalContextsProvider";
+import GlobalContextsProvider from "../../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicGlobalContextsProvider";
 
-import { PlasmicAdminActivityActivitesList } from "../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitesList";
+import { PlasmicAdminTaskAddTask } from "../../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAddTask";
 import { useRouter } from "next/router";
 
-function AdminActivityActivitesList() {
-  // Use PlasmicAdminActivityActivitesList to render this component as it was
+function AdminTaskAddTask() {
+  // Use PlasmicAdminTaskAddTask to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicAdminActivityActivitesList are:
+  // Props you can pass into PlasmicAdminTaskAddTask are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicAdminActivityActivitesList is wrapped by your project's global
+  // By default, PlasmicAdminTaskAddTask is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -32,10 +32,10 @@ function AdminActivityActivitesList() {
         params={useRouter()?.query}
         query={useRouter()?.query}
       >
-        <PlasmicAdminActivityActivitesList />
+        <PlasmicAdminTaskAddTask />
       </PageParamsProvider__>
     </GlobalContextsProvider>
   );
 }
 
-export default AdminActivityActivitesList;
+export default AdminTaskAddTask;

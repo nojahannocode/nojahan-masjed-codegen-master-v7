@@ -75,6 +75,8 @@ import sty from "./PlasmicAuthLoginComponent.module.css"; // plasmic-import: Tm9
 
 import LogoNoSvgIcon from "./icons/PlasmicIcon__LogoNoSvg"; // plasmic-import: Bi9ZoqrIWUrr/icon
 
+import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
+
 createPlasmicElementProxy;
 
 export type PlasmicAuthLoginComponent__VariantMembers = {};
@@ -127,7 +129,9 @@ export interface DefaultAuthLoginComponentProps {
   className?: string;
 }
 
-const $$ = {};
+const $$ = {
+  me: __fn_me
+};
 
 function useNextRouter() {
   try {
@@ -978,6 +982,62 @@ function PlasmicAuthLoginComponent__RenderFunc(props: {
                 typeof $steps["saveToken"].then === "function"
               ) {
                 $steps["saveToken"] = await $steps["saveToken"];
+              }
+
+              $steps["goToTaskUser"] = !!($$.me()?.user?.role === "user")
+                ? (() => {
+                    const actionArgs = { destination: `/` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToTaskUser"] != null &&
+                typeof $steps["goToTaskUser"] === "object" &&
+                typeof $steps["goToTaskUser"].then === "function"
+              ) {
+                $steps["goToTaskUser"] = await $steps["goToTaskUser"];
+              }
+
+              $steps["goToAdminActivityActivitesListest"] = !!(
+                $$.me()?.user?.role === "admin"
+              )
+                ? (() => {
+                    const actionArgs = { destination: `/admin/activities` };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToAdminActivityActivitesListest"] != null &&
+                typeof $steps["goToAdminActivityActivitesListest"] ===
+                  "object" &&
+                typeof $steps["goToAdminActivityActivitesListest"].then ===
+                  "function"
+              ) {
+                $steps["goToAdminActivityActivitesListest"] = await $steps[
+                  "goToAdminActivityActivitesListest"
+                ];
               }
             }}
           >
