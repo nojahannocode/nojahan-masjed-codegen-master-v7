@@ -570,6 +570,28 @@ function PlasmicTaskTaskCard__RenderFunc(props: {
               ) {
                 $steps["goToTask"] = await $steps["goToTask"];
               }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return (window.location.href = window.location.href);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
             }}
             onOpenChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["taskDetail", "open"]).apply(
