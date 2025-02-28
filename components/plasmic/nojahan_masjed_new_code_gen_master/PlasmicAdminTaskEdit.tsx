@@ -717,7 +717,13 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
                       "__wab_instance",
                       sty.formField__ck24S
                     )}
-                    initialValue={$state.getTask?.data[0]["help "]}
+                    initialValue={
+                      $state?.getTask &&
+                      $state?.getTask?.data &&
+                      $state?.getTask?.data.length > 0
+                        ? $state.getTask.data[0]["help "]
+                        : ""
+                    }
                     label={
                       <div
                         className={classNames(
