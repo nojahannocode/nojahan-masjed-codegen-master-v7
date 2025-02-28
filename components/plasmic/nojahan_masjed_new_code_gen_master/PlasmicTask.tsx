@@ -69,9 +69,9 @@ import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkg
 import CoreDescription from "../../CoreDescription"; // plasmic-import: Kw7q__mVGhml/component
 import CoreCheckboxGroup from "../../CoreCheckboxGroup"; // plasmic-import: Mc0VBpijIxyn/component
 import CoreCheckbox from "../../CoreCheckbox"; // plasmic-import: D_XHct9FBU8q/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import TaskTaskCard from "../../TaskTaskCard"; // plasmic-import: MvAqwlqnyI4K/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariantslyy4ZuIrWoht } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: lyy4ZUIrWoht/globalVariant
 
@@ -120,7 +120,6 @@ export type PlasmicTask__OverridesType = {
   taskList?: Flex__<"div">;
   apiRequestGetTaskList?: Flex__<typeof ApiRequest>;
   taskTaskCard?: Flex__<typeof TaskTaskCard>;
-  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultTaskProps {}
@@ -1028,6 +1027,27 @@ function PlasmicTask__RenderFunc(props: {
                                 }
                               />
 
+                              <Embed
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.embedHtml__rGqiC
+                                )}
+                                code={(() => {
+                                  try {
+                                    return currentItem["help "];
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "...";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -1568,9 +1588,7 @@ function PlasmicTask__RenderFunc(props: {
             </div>
           </Stack__>
           <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
+            className={classNames("__wab_instance", sty.embedHtml__n5OyH)}
             code={
               '<script type="text/javascript">\r\n  !function(){var i="FqTbNh",a=window,d=document;function g(){var g=d.createElement("script"),s="https://www.goftino.com/widget/"+i,l=localStorage.getItem("goftino_"+i);g.async=!0,g.src=l?s+"?o="+l:s;d.getElementsByTagName("head")[0].appendChild(g);}"complete"===d.readyState?g():a.attachEvent?a.attachEvent("onload",g):a.addEventListener("load",g,!1);}();\r\n</script>'
             }
@@ -1604,8 +1622,7 @@ const PlasmicDescendants = {
     "option2",
     "taskList",
     "apiRequestGetTaskList",
-    "taskTaskCard",
-    "embedHtml"
+    "taskTaskCard"
   ],
   coreHeaderMainHeader: ["coreHeaderMainHeader"],
   main: [
@@ -1671,8 +1688,7 @@ const PlasmicDescendants = {
   option2: ["option2"],
   taskList: ["taskList"],
   apiRequestGetTaskList: ["apiRequestGetTaskList"],
-  taskTaskCard: ["taskTaskCard"],
-  embedHtml: ["embedHtml"]
+  taskTaskCard: ["taskTaskCard"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1700,7 +1716,6 @@ type NodeDefaultElementType = {
   taskList: "div";
   apiRequestGetTaskList: typeof ApiRequest;
   taskTaskCard: typeof TaskTaskCard;
-  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1784,7 +1799,6 @@ export const PlasmicTask = Object.assign(
     taskList: makeNodeComponent("taskList"),
     apiRequestGetTaskList: makeNodeComponent("apiRequestGetTaskList"),
     taskTaskCard: makeNodeComponent("taskTaskCard"),
-    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicTask
     internalVariantProps: PlasmicTask__VariantProps,
