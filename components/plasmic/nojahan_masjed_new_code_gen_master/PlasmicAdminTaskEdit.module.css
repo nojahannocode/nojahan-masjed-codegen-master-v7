@@ -124,16 +124,17 @@
   max-width: 100%;
   object-fit: cover;
 }
-.label2:global(.__wab_instance):global(.__wab_instance) {
-  max-width: 100%;
-  margin-bottom: 3px;
+.formField__ck24S:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
 }
-.text__j5Dv {
-  font-weight: 300;
-  font-size: 14px;
-  color: #646464;
+.text__hU7L {
   font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
   font-style: normal;
+  color: #535353;
   text-align: left;
   text-transform: none;
   line-height: 1.5;
@@ -143,12 +144,9 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.richTextEditor:global(.__wab_instance) {
+.textArea:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  background: #ffffff;
-  width: 100%;
-  min-width: 0;
 }
 .formField__gdwMz:global(.__wab_instance) {
   width: 100%;

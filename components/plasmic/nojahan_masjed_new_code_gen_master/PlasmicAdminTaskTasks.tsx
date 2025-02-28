@@ -63,8 +63,8 @@ import CoreHeaderAdminHeader from "../../CoreHeaderAdminHeader"; // plasmic-impo
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdAvatar } from "@plasmicpkgs/antd5/skinny/registerAvatar";
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import TaskCardTasx from "../../TaskCardTasx"; // plasmic-import: pNWA3CgjmfOy/component
 import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
+import TaskCardTasx from "../../TaskCardTasx"; // plasmic-import: pNWA3CgjmfOy/component
 
 import { useScreenVariants as useScreenVariantslyy4ZuIrWoht } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: lyy4ZUIrWoht/globalVariant
 
@@ -105,8 +105,8 @@ export type PlasmicAdminTaskTasks__OverridesType = {
   messageIcon2?: Flex__<"svg">;
   popover?: Flex__<typeof AntdPopover>;
   messageIcon?: Flex__<"svg">;
-  taskCardTasx?: Flex__<typeof TaskCardTasx>;
   listTasks?: Flex__<typeof ApiRequest>;
+  taskCardTasx?: Flex__<typeof TaskCardTasx>;
 };
 
 export interface DefaultAdminTaskTasksProps {}
@@ -536,6 +536,93 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
+            <ApiRequest
+              data-plasmic-name={"listTasks"}
+              data-plasmic-override={overrides.listTasks}
+              className={classNames("__wab_instance", sty.listTasks)}
+              config={(() => {
+                try {
+                  return {
+                    headers: { "x-token": $$.me()?.token }
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zzqbp
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___6Yjf8
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["listTasks", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "listTasks",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["listTasks", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return {
+                    activity_id: $ctx?.params?.activityId
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://noapi.darkube.app/webhook/admin/tasks"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rVI8
+                )}
+              >
+                {""}
+              </div>
+            </ApiRequest>
             {(() => {
               try {
                 return (
@@ -783,93 +870,6 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
                     );
                   })}
                 </div>
-                <ApiRequest
-                  data-plasmic-name={"listTasks"}
-                  data-plasmic-override={overrides.listTasks}
-                  className={classNames("__wab_instance", sty.listTasks)}
-                  config={(() => {
-                    try {
-                      return {
-                        headers: { "x-token": $$.me()?.token }
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  errorDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zzqbp
-                      )}
-                    >
-                      {"Error fetching data"}
-                    </div>
-                  }
-                  loadingDisplay={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___6Yjf8
-                      )}
-                    >
-                      {"Loading..."}
-                    </div>
-                  }
-                  method={"GET"}
-                  onError={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "listTasks",
-                      "error"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onLoading={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "listTasks",
-                      "loading"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onSuccess={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "listTasks",
-                      "data"
-                    ]).apply(null, eventArgs);
-                  }}
-                  params={(() => {
-                    try {
-                      return {
-                        activity_id: $ctx?.params?.activityId
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  url={"https://noapi.darkube.app/webhook/admin/tasks"}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rVI8
-                    )}
-                  >
-                    {""}
-                  </div>
-                </ApiRequest>
               </Stack__>
             ) : null}
           </div>
@@ -894,8 +894,8 @@ const PlasmicDescendants = {
     "messageIcon2",
     "popover",
     "messageIcon",
-    "taskCardTasx",
-    "listTasks"
+    "listTasks",
+    "taskCardTasx"
   ],
   coreHeaderAdminHeader: ["coreHeaderAdminHeader"],
   button: ["button", "svg"],
@@ -925,8 +925,8 @@ const PlasmicDescendants = {
   messageIcon2: ["messageIcon2"],
   popover: ["popover", "messageIcon"],
   messageIcon: ["messageIcon"],
-  taskCardTasx: ["taskCardTasx"],
-  listTasks: ["listTasks"]
+  listTasks: ["listTasks"],
+  taskCardTasx: ["taskCardTasx"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -945,8 +945,8 @@ type NodeDefaultElementType = {
   messageIcon2: "svg";
   popover: typeof AntdPopover;
   messageIcon: "svg";
-  taskCardTasx: typeof TaskCardTasx;
   listTasks: typeof ApiRequest;
+  taskCardTasx: typeof TaskCardTasx;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1021,8 +1021,8 @@ export const PlasmicAdminTaskTasks = Object.assign(
     messageIcon2: makeNodeComponent("messageIcon2"),
     popover: makeNodeComponent("popover"),
     messageIcon: makeNodeComponent("messageIcon"),
-    taskCardTasx: makeNodeComponent("taskCardTasx"),
     listTasks: makeNodeComponent("listTasks"),
+    taskCardTasx: makeNodeComponent("taskCardTasx"),
 
     // Metadata about props expected for PlasmicAdminTaskTasks
     internalVariantProps: PlasmicAdminTaskTasks__VariantProps,

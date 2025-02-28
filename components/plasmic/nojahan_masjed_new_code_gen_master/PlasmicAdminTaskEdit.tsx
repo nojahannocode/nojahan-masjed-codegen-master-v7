@@ -66,9 +66,8 @@ import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Fo
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Label2 from "../../Label2"; // plasmic-import: 2jqcHHkVgsbR/component
-import { Quill } from "@plasmicpkgs/react-quill";
-import { quillHelpers as Quill_Helpers } from "@plasmicpkgs/react-quill";
+import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 
@@ -100,8 +99,7 @@ export type PlasmicAdminTaskEdit__OverridesType = {
   editTask?: Flex__<typeof FormWrapper>;
   input3?: Flex__<typeof AntdInput>;
   input2?: Flex__<typeof AntdInput>;
-  label2?: Flex__<typeof Label2>;
-  richTextEditor?: Flex__<typeof Quill>;
+  textArea?: Flex__<typeof AntdTextArea>;
   select?: Flex__<typeof AntdSelect>;
   select2?: Flex__<typeof AntdSelect>;
   select3?: Flex__<typeof AntdSelect>;
@@ -190,27 +188,6 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "richTextEditor.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.getTask.data[0]["help "];
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })(),
-
-        onMutate: generateOnMutateForSpec("value", Quill_Helpers)
-      },
-      {
         path: "select.value",
         type: "private",
         variableType: "text",
@@ -251,6 +228,14 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textArea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -430,8 +415,7 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
                             (() => {
                               try {
                                 return {
-                                  ...$state.editTask.value,
-                                  help: $state.richTextEditor.value
+                                  ...$state.editTask.value
                                 };
                               } catch (e) {
                                 if (
@@ -728,114 +712,72 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
                       );
                     })()}
                   </FormItemWrapper>
-                  <Label2
-                    data-plasmic-name={"label2"}
-                    data-plasmic-override={overrides.label2}
-                    className={classNames("__wab_instance", sty.label2)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__j5Dv
-                      )}
-                    >
-                      {
-                        "\u0645\u062a\u0646 \u0631\u0627\u0647\u0646\u0645\u0627"
-                      }
-                    </div>
-                  </Label2>
-                  {(() => {
-                    const child$Props = {
-                      containerClassName: classNames(
-                        "__wab_instance",
-                        sty.richTextEditor
-                      ),
-                      defaultValue: (() => {
-                        try {
-                          return $state.getTask.data[0]["help "];
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })(),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["richTextEditor", "value"],
-                          Quill_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      preserveWhitespace: true,
-                      readOnly: false,
-                      toolbar: {
-                        textStyle: [
-                          "bold",
-                          "italic",
-                          "underline",
-                          "strikethrough"
-                        ],
-                        colors: ["text color", "text background"],
-                        script: true,
-                        fontFamily: true,
-                        heading: [
-                          "Heading 1",
-                          "Heading 2",
-                          "Heading 3",
-                          "Heading 4",
-                          "Heading 5",
-                          "Heading 6",
-                          "Body"
-                        ],
-                        fontSizes: ["small", "medium", "large", "huge"],
-                        formatting: [
-                          "alignment",
-                          "list",
-                          "indentation",
-                          "text direction",
-                          "clear formatting"
-                        ],
-                        inputTypes: [
-                          "link",
-                          "blockquote",
-                          "image",
-                          "video",
-                          "code-block",
-                          "formula"
-                        ]
-                      },
-                      value: generateStateValueProp($state, [
-                        "richTextEditor",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
+                  <FormItemWrapper
+                    className={classNames(
+                      "__wab_instance",
+                      sty.formField__ck24S
+                    )}
+                    initialValue={$state.getTask.data[0]["help "]}
+                    label={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hU7L
+                        )}
+                      >
                         {
-                          name: "value",
-                          plasmicStateName: "richTextEditor.value"
+                          "\u0645\u062a\u0646 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc"
                         }
-                      ],
-                      [],
-                      Quill_Helpers ?? {},
-                      child$Props
-                    );
+                      </div>
+                    }
+                    name={"help"}
+                    rules={[
+                      {
+                        ruleType: "required",
+                        message:
+                          "\u0641\u06cc\u0644\u062f \u0636\u0631\u0648\u0631\u06cc"
+                      }
+                    ]}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        className: classNames("__wab_instance", sty.textArea),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["textArea", "value"],
+                            AntdTextArea_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        value: generateStateValueProp($state, [
+                          "textArea",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "textArea.value"
+                          }
+                        ],
+                        [],
+                        AntdTextArea_Helpers ?? {},
+                        child$Props
+                      );
 
-                    return (
-                      <Quill
-                        data-plasmic-name={"richTextEditor"}
-                        data-plasmic-override={overrides.richTextEditor}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
+                      return (
+                        <AntdTextArea
+                          data-plasmic-name={"textArea"}
+                          data-plasmic-override={overrides.textArea}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                  </FormItemWrapper>
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
@@ -1218,8 +1160,7 @@ const PlasmicDescendants = {
     "editTask",
     "input3",
     "input2",
-    "label2",
-    "richTextEditor",
+    "textArea",
     "select",
     "select2",
     "select3",
@@ -1233,8 +1174,7 @@ const PlasmicDescendants = {
     "editTask",
     "input3",
     "input2",
-    "label2",
-    "richTextEditor",
+    "textArea",
     "select",
     "select2",
     "select3",
@@ -1246,8 +1186,7 @@ const PlasmicDescendants = {
     "editTask",
     "input3",
     "input2",
-    "label2",
-    "richTextEditor",
+    "textArea",
     "select",
     "select2",
     "select3",
@@ -1256,8 +1195,7 @@ const PlasmicDescendants = {
   ],
   input3: ["input3"],
   input2: ["input2"],
-  label2: ["label2"],
-  richTextEditor: ["richTextEditor"],
+  textArea: ["textArea"],
   select: ["select"],
   select2: ["select2"],
   select3: ["select3"],
@@ -1275,8 +1213,7 @@ type NodeDefaultElementType = {
   editTask: typeof FormWrapper;
   input3: typeof AntdInput;
   input2: typeof AntdInput;
-  label2: typeof Label2;
-  richTextEditor: typeof Quill;
+  textArea: typeof AntdTextArea;
   select: typeof AntdSelect;
   select2: typeof AntdSelect;
   select3: typeof AntdSelect;
@@ -1350,8 +1287,7 @@ export const PlasmicAdminTaskEdit = Object.assign(
     editTask: makeNodeComponent("editTask"),
     input3: makeNodeComponent("input3"),
     input2: makeNodeComponent("input2"),
-    label2: makeNodeComponent("label2"),
-    richTextEditor: makeNodeComponent("richTextEditor"),
+    textArea: makeNodeComponent("textArea"),
     select: makeNodeComponent("select"),
     select2: makeNodeComponent("select2"),
     select3: makeNodeComponent("select3"),
