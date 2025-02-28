@@ -521,6 +521,28 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
               ) {
                 $steps["goTo"] = await $steps["goTo"];
               }
+
+              $steps["updateModalOpen2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return (window.location.href = window.location.href);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateModalOpen2"] != null &&
+                typeof $steps["updateModalOpen2"] === "object" &&
+                typeof $steps["updateModalOpen2"].then === "function"
+              ) {
+                $steps["updateModalOpen2"] = await $steps["updateModalOpen2"];
+              }
             },
             onIsSubmittingChange: async (...eventArgs: any) => {
               generateStateOnChangePropForCodeComponents(
