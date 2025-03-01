@@ -1,11 +1,10 @@
 {
-  "name": "Nojahan",
-  "short_name": "Nojahan",
-  "description": "Nojahan Masjed",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "name": "نوجهان",
+  "short_name": "نوجهان - Nojahan",
+  "description": "تجربه مشارکت جوانان و نوجوانان در مدیریت مسجد",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["مذهبی", "مشارکتی"],
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -16,6 +15,20 @@
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "android_package_name": "ir.nojahan.masjed.app.pwa"
 }
