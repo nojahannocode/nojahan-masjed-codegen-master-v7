@@ -521,6 +521,7 @@
     width: 15px;
     height: 18px;
     flex-shrink: 0;
+    display: block;
   }
 }
 .text__sf9Tt {

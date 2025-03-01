@@ -26,16 +26,16 @@
   align-items: center;
   z-index: 100;
   position: absolute;
-  left: 15px;
-  top: 15px;
+  left: 1rem;
+  top: 1rem;
   flex-shrink: 0;
   margin: 0px 5px 0px 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .button__cP8H6:global(.__wab_instance) {
     width: 32px;
-    left: 0px;
-    top: 0px;
+    left: 1rem;
+    top: 1rem;
   }
 }
 .svg__oJ0Nq {
@@ -178,6 +178,10 @@
     min-height: 0;
   }
 }
+.popover:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .titel {
   width: auto;
   height: auto;
@@ -188,13 +192,19 @@
   text-align: center;
   user-select: none;
   white-space: pre;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis !important;
   overflow: hidden;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .titel {
     font-size: 12px;
   }
+}
+.text__rtrFz {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .freeBox__pbZec {
   display: flex;

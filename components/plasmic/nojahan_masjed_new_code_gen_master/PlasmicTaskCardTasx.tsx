@@ -705,16 +705,46 @@ function PlasmicTaskCardTasx__RenderFunc(props: {
             ) : null}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__gtBdb)}>
-            <FemaleSvgrepoComSvgIcon
-              className={classNames(projectcss.all, sty.svg__dmYxn)}
-              role={"img"}
-            />
-
-            <MaleSvgrepoCom2SvgIcon
-              className={classNames(projectcss.all, sty.svg___9FjJj)}
-              role={"img"}
-            />
-
+            {(() => {
+              try {
+                return $props?.gender !== "male";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <FemaleSvgrepoComSvgIcon
+                className={classNames(projectcss.all, sty.svg__dmYxn)}
+                role={"img"}
+              />
+            ) : null}
+            {(
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? true
+                : (() => {
+                    try {
+                      return $props?.gender !== "female";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+            ) ? (
+              <MaleSvgrepoCom2SvgIcon
+                className={classNames(projectcss.all, sty.svg___9FjJj)}
+                role={"img"}
+              />
+            ) : null}
             <div
               className={classNames(
                 projectcss.all,

@@ -67,6 +67,7 @@ import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 
 import { useScreenVariants as useScreenVariantslyy4ZuIrWoht } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: lyy4ZUIrWoht/globalVariant
 
@@ -127,6 +128,7 @@ export type PlasmicTaskCardActivitie__OverridesType = {
   select?: Flex__<typeof AntdSelect>;
   select2?: Flex__<typeof AntdSelect>;
   task?: Flex__<"div">;
+  popover?: Flex__<typeof AntdPopover>;
   titel?: Flex__<"div">;
   strong?: Flex__<"strong">;
 };
@@ -283,6 +285,12 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -842,31 +850,99 @@ function PlasmicTaskCardActivitie__RenderFunc(props: {
             className={classNames(projectcss.all, sty.task)}
             dir={"rtl"}
           >
-            <div
-              data-plasmic-name={"titel"}
-              data-plasmic-override={overrides.titel}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.titel
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.name;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "\u0639\u0646\u0648\u0627\u0646:";
+            <AntdPopover
+              data-plasmic-name={"popover"}
+              data-plasmic-override={overrides.popover}
+              arrow={true}
+              className={classNames("__wab_instance", sty.popover)}
+              content={
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.name;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Popover contents";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
+                  })()}
+                </React.Fragment>
+              }
+              contentText={"Popover contents"}
+              defaultStylesClassName={classNames(
+                projectcss.root_reset,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens,
+                plasmic_antd_5_hostless_css.plasmic_tokens,
+                plasmic_plasmic_rich_components_css.plasmic_tokens
+              )}
+              mouseEnterDelay={0}
+              mouseLeaveDelay={0}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["popover", "open"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              open={generateStateValueProp($state, ["popover", "open"])}
+              popoverScopeClassName={sty["popover__popover"]}
+              title={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rtrFz
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return "";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              }
+            >
+              <div
+                data-plasmic-name={"titel"}
+                data-plasmic-override={overrides.titel}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.titel
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.name;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0639\u0646\u0648\u0627\u0646:";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </AntdPopover>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__pbZec)} />
         </div>
@@ -993,6 +1069,7 @@ const PlasmicDescendants = {
     "select",
     "select2",
     "task",
+    "popover",
     "titel",
     "strong"
   ],
@@ -1001,7 +1078,8 @@ const PlasmicDescendants = {
   input: ["input"],
   select: ["select"],
   select2: ["select2"],
-  task: ["task", "titel"],
+  task: ["task", "popover", "titel"],
+  popover: ["popover", "titel"],
   titel: ["titel"],
   strong: ["strong"]
 } as const;
@@ -1016,6 +1094,7 @@ type NodeDefaultElementType = {
   select: typeof AntdSelect;
   select2: typeof AntdSelect;
   task: "div";
+  popover: typeof AntdPopover;
   titel: "div";
   strong: "strong";
 };
@@ -1086,6 +1165,7 @@ export const PlasmicTaskCardActivitie = Object.assign(
     select: makeNodeComponent("select"),
     select2: makeNodeComponent("select2"),
     task: makeNodeComponent("task"),
+    popover: makeNodeComponent("popover"),
     titel: makeNodeComponent("titel"),
     strong: makeNodeComponent("strong"),
 
