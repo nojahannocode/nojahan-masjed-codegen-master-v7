@@ -571,7 +571,7 @@ function PlasmicTaskTaskCard__RenderFunc(props: {
                 $steps["goToTask"] = await $steps["goToTask"];
               }
 
-              $steps["runCode"] = true
+              $steps["runCode"] = !!$$.me()?.token
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
