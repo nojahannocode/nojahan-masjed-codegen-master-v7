@@ -28,7 +28,7 @@
   "theme_color": "#000000",
   "start_url": "/",
   "scope": "/",
-  "display": "standalone",
+  "display": "minimal-ui",
   "orientation": "portrait",
   "android_package_name": "ir.nojahan.masjed.app.pwa"
 }
