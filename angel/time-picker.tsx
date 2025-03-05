@@ -10,11 +10,11 @@ export const TimePicker = ({
   minuteExclude,
   notShowExclude,
 }: any) => {
-  const fragmentConfig = useSelector("Fragment");
+  const angelConfig = useSelector("angel");
 
   useEffect(() => {
-    changeTheme(fragmentConfig?.primaryColor);
-  }, [fragmentConfig?.primaryColor]);
+    changeTheme(angelConfig?.primaryColor);
+  }, [angelConfig?.primaryColor]);
 
   const changeTheme = (color: string) => {
     document.documentElement.style.setProperty("--timeit-primary-color", color);
@@ -35,8 +35,8 @@ export const TimePicker = ({
 
 export const timePickerMeta: CodeComponentMeta<any> = {
   name: "TimePicker",
-  displayName: "Fragment/TimePicker",
-  importPath: "@/fragment/components/time-picker",
+  displayName: "angel/TimePicker",
+  importPath: "@/angel/components/time-picker",
   props: {
     value: { type: "string", defaultValue: "00:00" },
     hourExclude: {

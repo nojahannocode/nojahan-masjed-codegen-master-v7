@@ -44,7 +44,7 @@ export const DatePicker = ({
         onYearChange={(value: DateObject) => {
           onYearChange(value.year);
         }}
-        className={cn("fragment", { "custom-day-cell": customDayCell })}
+        className={cn("angel", { "custom-day-cell": customDayCell })}
         {...(locale === "fa" && {
           calendar: persian,
           locale: {
@@ -63,7 +63,7 @@ export const DatePicker = ({
           if (customDayCell && !!dayCell) {
             return {
               style: {},
-              class: "fragment-day-reset-cell",
+              class: "angel-day-reset-cell",
               children: React.createElement(dayCell, {
                 unix: date.unix,
                 date: { day: date.day, month: date.month, year: date.year },
@@ -94,11 +94,11 @@ export const DatePicker = ({
           }
           let props: any = {};
 
-          props.class = "fragment-day-cell";
+          props.class = "angel-day-cell";
 
-          if (isWeekend) props.class = "fragment-day-holiday-cell";
+          if (isWeekend) props.class = "angel-day-holiday-cell";
 
-          if (isSameDate(date, today)) props.class = "fragment-day-today-cell";
+          if (isSameDate(date, today)) props.class = "angel-day-today-cell";
 
           if (
             holidays.some(
@@ -111,7 +111,7 @@ export const DatePicker = ({
                   .unix()
             )
           )
-            props.class = "fragment-day-holiday-cell";
+            props.class = "angel-day-holiday-cell";
 
           if (
             Array.isArray(selectedDate)
@@ -126,7 +126,7 @@ export const DatePicker = ({
                 )
               : isSameDate(date, selectedDate)
           )
-            props.class = "fragment-day-active-cell";
+            props.class = "angel-day-active-cell";
 
           return props;
         }}
@@ -137,8 +137,8 @@ export const DatePicker = ({
 
 export const datePickerMeta: CodeComponentMeta<any> = {
   name: "DatePicker",
-  displayName: "Fragment/DatePicker",
-  importPath: "@/fragment/components/date-picker",
+  displayName: "angel/DatePicker",
+  importPath: "@/angel/components/date-picker",
   props: {
     value: { type: "number", hidden: (ps) => ps.mode === "multiple" },
     values: {
