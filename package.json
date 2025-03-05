@@ -38,12 +38,17 @@
     "@tiptap/suggestion": "^2.11.5",
     "axios": "^1.8.1",
     "dayjs": "^1.11.13",
+    "jalali-moment": "^3.3.11",
     "next": "14.2.24",
     "next-pwa": "^5.6.0",
     "react": "^18",
+    "react-date-object": "^2.1.9",
     "react-dom": "^18",
     "react-hot-toast": "^2.5.2",
+    "react-multi-date-picker": "^4.5.2",
     "react-quill": "^2.0.0",
+    "react-timeit": "^1.2.12",
+    "tailwind-merge": "^3.0.2",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {

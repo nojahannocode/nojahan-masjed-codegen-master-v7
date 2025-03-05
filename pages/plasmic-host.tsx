@@ -5,6 +5,8 @@ import {Angel, angelMeta} from "@/angel/Angel";
 import {registerFunction, registerGlobalContext} from "@plasmicapp/host";
 import {getLocalStorageValue, getLocalStorageValueMeta} from "@/angel/getLocalStorageValue";
 import {me, meMeta} from "@/angel/me";
+import {DatePicker, datePickerMeta} from "@/angel/date-picker";
+import {TimePicker, timePickerMeta} from "@/angel/time-picker";
 
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
@@ -16,6 +18,8 @@ import {me, meMeta} from "@/angel/me";
 // registerComponent(...)
 registerGlobalContext(Angel, angelMeta);
 registerComponent(ApiRequest, apiRequestMeta);
+registerComponent(DatePicker, datePickerMeta);
+registerComponent(TimePicker, timePickerMeta);
 registerFunction(getLocalStorageValue, getLocalStorageValueMeta)
 registerFunction(me, meMeta)
 
