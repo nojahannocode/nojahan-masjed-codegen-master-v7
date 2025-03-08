@@ -87,15 +87,23 @@ import { me as __fn_me } from "@/angel/me"; // plasmic-import: me/customFunction
 
 createPlasmicElementProxy;
 
-export type PlasmicCoreHeaderAdminHeader__VariantMembers = {};
-export type PlasmicCoreHeaderAdminHeader__VariantsArgs = {};
+export type PlasmicCoreHeaderAdminHeader__VariantMembers = {
+  home: "home";
+};
+export type PlasmicCoreHeaderAdminHeader__VariantsArgs = {
+  home?: SingleBooleanChoiceArg<"home">;
+};
 type VariantPropType = keyof PlasmicCoreHeaderAdminHeader__VariantsArgs;
 export const PlasmicCoreHeaderAdminHeader__VariantProps =
-  new Array<VariantPropType>();
+  new Array<VariantPropType>("home");
 
-export type PlasmicCoreHeaderAdminHeader__ArgsType = {};
+export type PlasmicCoreHeaderAdminHeader__ArgsType = {
+  page?: string;
+};
 type ArgPropType = keyof PlasmicCoreHeaderAdminHeader__ArgsType;
-export const PlasmicCoreHeaderAdminHeader__ArgProps = new Array<ArgPropType>();
+export const PlasmicCoreHeaderAdminHeader__ArgProps = new Array<ArgPropType>(
+  "page"
+);
 
 export type PlasmicCoreHeaderAdminHeader__OverridesType = {
   root?: Flex__<"div">;
@@ -118,6 +126,8 @@ export type PlasmicCoreHeaderAdminHeader__OverridesType = {
 };
 
 export interface DefaultCoreHeaderAdminHeaderProps {
+  page?: string;
+  home?: SingleBooleanChoiceArg<"home">;
   className?: string;
 }
 
@@ -219,6 +229,12 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "home",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.home
       }
     ],
     [$props, $ctx, $refs]
@@ -248,7 +264,8 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.roothome]: hasVariant($state, "home", "home") }
       )}
     >
       <div
@@ -1166,11 +1183,13 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__m9IXf)}>
           <Icon15Icon
-            className={classNames(projectcss.all, sty.svg__opN0P)}
+            className={classNames(projectcss.all, sty.svg__opN0P, {
+              [sty.svghome__opN0PKmqga]: hasVariant($state, "home", "home")
+            })}
             onClick={async event => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["runCode"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1192,6 +1211,45 @@ function PlasmicCoreHeaderAdminHeader__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["goToPage"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: (() => {
+                        try {
+                          return $props.page;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return `/admin/activities`;
+                          }
+                          throw e;
+                        }
+                      })()
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
               }
             }}
             role={"img"}

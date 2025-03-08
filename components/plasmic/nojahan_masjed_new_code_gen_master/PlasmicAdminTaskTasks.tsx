@@ -294,6 +294,19 @@ function PlasmicAdminTaskTasks__RenderFunc(props: {
             data-plasmic-name={"coreHeaderAdminHeader"}
             data-plasmic-override={overrides.coreHeaderAdminHeader}
             className={classNames("__wab_instance", sty.coreHeaderAdminHeader)}
+            page={(() => {
+              try {
+                return "/admin/activities";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <AntdButton

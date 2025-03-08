@@ -278,6 +278,19 @@ function PlasmicAdminTaskEdit__RenderFunc(props: {
             data-plasmic-name={"coreHeaderAdminHeader"}
             data-plasmic-override={overrides.coreHeaderAdminHeader}
             className={classNames("__wab_instance", sty.coreHeaderAdminHeader)}
+            page={(() => {
+              try {
+                return `/admin/${$state.getTask.data[0].activity_id}/tasks`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <div

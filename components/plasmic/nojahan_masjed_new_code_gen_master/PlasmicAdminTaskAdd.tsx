@@ -68,7 +68,7 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { TimePicker } from "@/angel/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
+import { TimePicker } from "@/angel/components/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
 
@@ -359,6 +359,19 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
             data-plasmic-name={"coreHeaderAdminHeader"}
             data-plasmic-override={overrides.coreHeaderAdminHeader}
             className={classNames("__wab_instance", sty.coreHeaderAdminHeader)}
+            page={(() => {
+              try {
+                return `/admin/${$state.apiRequestGetActivity.data[0].id}/tasks`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
 
           <div

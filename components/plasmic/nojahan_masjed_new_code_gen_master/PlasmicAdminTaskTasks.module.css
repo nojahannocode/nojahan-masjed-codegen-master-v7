@@ -41,11 +41,11 @@
   top: auto;
   z-index: 1;
   position: fixed;
-  bottom: 2rem;
   width: 70px;
   height: 70px;
   text-align: center;
   box-shadow: 0px 4px 16px 0px #00000033;
+  bottom: 2rem;
   border-radius: 100%;
   padding: 8px;
 }
@@ -317,6 +317,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
 }
 .listTasks:global(.__wab_instance) {
   max-width: 100%;
@@ -341,6 +342,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
 }
 .freeBox__lBh5N {
   display: flex;
@@ -403,7 +405,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 8px 8px 115px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__fq2Ap {

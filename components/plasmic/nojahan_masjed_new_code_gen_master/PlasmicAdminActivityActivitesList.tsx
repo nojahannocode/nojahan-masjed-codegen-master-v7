@@ -69,8 +69,8 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import { DatePicker } from "@/angel/date-picker"; // plasmic-import: koiF6B3Ak70B/codeComponent
-import { TimePicker } from "@/angel/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
+import { DatePicker } from "@/angel/components/date-picker"; // plasmic-import: koiF6B3Ak70B/codeComponent
+import { TimePicker } from "@/angel/components/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
 import Empty from "../../Empty"; // plasmic-import: 00BG3jmDg3a5/component
@@ -381,6 +381,7 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
             data-plasmic-name={"coreHeaderAdminHeader"}
             data-plasmic-override={overrides.coreHeaderAdminHeader}
             className={classNames("__wab_instance", sty.coreHeaderAdminHeader)}
+            home={true}
           />
 
           <AntdModal
@@ -1280,7 +1281,7 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                 }}
                 params={(() => {
                   try {
-                    return { status: "active" };
+                    return { status: "active", masjed_id: 1 };
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1509,7 +1510,8 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                 params={(() => {
                   try {
                     return {
-                      status: "inactive"
+                      status: "inactive",
+                      masjed_id: 1
                     };
                   } catch (e) {
                     if (

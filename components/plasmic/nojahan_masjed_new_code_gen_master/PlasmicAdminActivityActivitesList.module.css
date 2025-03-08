@@ -19,6 +19,7 @@
       calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+  padding: 0px;
 }
 .root > * {
   grid-column: 4;
@@ -481,7 +482,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 8px 8px 120px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__rGLi {
