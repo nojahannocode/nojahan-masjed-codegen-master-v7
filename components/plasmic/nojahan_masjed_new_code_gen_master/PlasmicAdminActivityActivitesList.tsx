@@ -479,7 +479,8 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                                         .toISOString()
                                         .split("T")[0] +
                                       " " +
-                                      $state.timePicker2End.value
+                                      $state.timePicker2End.value,
+                                    masjed_id: 1
                                   };
                                 } catch (e) {
                                   if (
