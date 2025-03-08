@@ -1493,7 +1493,9 @@ function PlasmicTask__RenderFunc(props: {
                       "data"
                     ]).apply(null, eventArgs);
                   }}
-                  url={"https://noapi.darkube.app/webhook/usertasks"}
+                  url={
+                    "https://noapi.darkube.app/webhook/usertasks?masjed_id=1"
+                  }
                 >
                   <div
                     className={classNames(

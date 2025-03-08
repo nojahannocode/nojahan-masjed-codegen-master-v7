@@ -4,7 +4,7 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicGlobalContextsProvider";
 
-import { PlasmicAdminTaskAdd } from "../../../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAdd";
+import { PlasmicAdminTaskAdd } from "@/components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminTaskAdd";
 import { useRouter } from "next/router";
 
 function AdminTaskAdd() {

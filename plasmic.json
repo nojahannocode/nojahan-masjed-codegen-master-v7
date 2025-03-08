@@ -1254,20 +1254,6 @@
           "componentType": "component"
         },
         {
-          "id": "mXkNsut3n5tQ",
-          "name": "AdminActivityActivitiesList",
-          "type": "managed",
-          "projectId": "x5n9pjkHvzguzBipVWhAiz",
-          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitiesList.tsx",
-          "importSpec": {
-            "modulePath": "../pages/admin/activities2.tsx"
-          },
-          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitiesList.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/admin/activities2"
-        },
-        {
           "id": "ZTGMlsvVVp1c",
           "name": "CoreHeaderAdminHeader",
           "type": "managed",
@@ -1465,6 +1451,20 @@
           "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicSidebarMenuComponent.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "mXkNsut3n5tQ",
+          "name": "AdminActivityTest",
+          "type": "managed",
+          "projectId": "x5n9pjkHvzguzBipVWhAiz",
+          "renderModuleFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityTest.tsx",
+          "importSpec": {
+            "modulePath": "../pages/admin/activities2.tsx"
+          },
+          "cssFilePath": "plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityTest.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/admin/activities2"
         }
       ],
       "icons": [
@@ -1678,6 +1678,18 @@
           "name": "Angel",
           "displayName": "Angel",
           "componentImportPath": "@/angel/Angel"
+        },
+        {
+          "id": "koiF6B3Ak70B",
+          "name": "DatePicker",
+          "displayName": "DatePicker",
+          "componentImportPath": "@/angel/components/date-picker"
+        },
+        {
+          "id": "y3_mmDdIpKkL",
+          "name": "TimePicker",
+          "displayName": "TimePicker",
+          "componentImportPath": "@/angel/components/time-picker"
         }
       ],
       "customFunctions": [

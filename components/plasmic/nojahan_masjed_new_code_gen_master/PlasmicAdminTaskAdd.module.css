@@ -46,9 +46,10 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   object-fit: cover;
+  align-self: stretch;
   min-width: 0;
   padding: 8px;
 }
@@ -162,6 +163,10 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
+}
+.timePicker:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .formField__vYkJg:global(.__wab_instance) {
   width: 100%;
@@ -302,5 +307,41 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
+  min-width: 0;
+}
+.apiRequestGetActivity:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__rgAsf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__vY8R {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.apiRequestOwghat:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__yioi0 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__rFybU {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   min-width: 0;
 }

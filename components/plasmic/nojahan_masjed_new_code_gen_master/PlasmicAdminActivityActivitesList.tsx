@@ -67,6 +67,10 @@ import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { DatePicker } from "@/angel/date-picker"; // plasmic-import: koiF6B3Ak70B/codeComponent
+import { TimePicker } from "@/angel/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
 import Empty from "../../Empty"; // plasmic-import: 00BG3jmDg3a5/component
@@ -102,6 +106,14 @@ export type PlasmicAdminActivityActivitesList__OverridesType = {
   modal?: Flex__<typeof AntdModal>;
   form?: Flex__<typeof FormWrapper>;
   input?: Flex__<typeof AntdInput>;
+  select?: Flex__<typeof AntdSelect>;
+  select2?: Flex__<typeof AntdSelect>;
+  collapse?: Flex__<typeof AntdSingleCollapse>;
+  datePickerStart?: Flex__<typeof DatePicker>;
+  timePickerStart?: Flex__<typeof TimePicker>;
+  collapse2?: Flex__<typeof AntdSingleCollapse>;
+  datePicker2End?: Flex__<typeof DatePicker>;
+  timePicker2End?: Flex__<typeof TimePicker>;
   svg?: Flex__<"svg">;
   getActiveActivities?: Flex__<typeof ApiRequest>;
   getInActiveActivities?: Flex__<typeof ApiRequest>;
@@ -231,6 +243,102 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickerStart.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickerStart.values",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "datePickerStart.month",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickerStart.year",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "timePickerStart.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "00:00"
+      },
+      {
+        path: "collapse.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "collapse2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "datePicker2End.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePicker2End.values",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "datePicker2End.month",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePicker2End.year",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "timePicker2End.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "00:00"
       }
     ],
     [$props, $ctx, $refs]
@@ -328,10 +436,17 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                       const $steps = {};
                     }).apply(null, eventArgs);
                   },
-                  formItems: undefined,
+                  formItems: [
+                    { label: "Name", name: "name", inputType: "Text" },
+                    {
+                      label: "Message",
+                      name: "message",
+                      inputType: "Text Area"
+                    }
+                  ],
                   labelCol: { span: 8, horizontalOnly: true },
                   layout: "vertical",
-                  mode: undefined,
+                  mode: "advanced",
                   onFinish: async values => {
                     const $steps = {};
 
@@ -344,7 +459,27 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                               undefined,
                               (() => {
                                 try {
-                                  return $state.form.value;
+                                  return {
+                                    gender: $state.form.value.gender,
+                                    status: $state.form.value.status,
+                                    name: $state.form.value.name,
+                                    start_date:
+                                      new Date(
+                                        $state.datePickerStart.value * 1000
+                                      )
+                                        .toISOString()
+                                        .split("T")[0] +
+                                      " " +
+                                      $state.timePickerStart.value,
+                                    end_date:
+                                      new Date(
+                                        $state.datePicker2End.value * 1000
+                                      )
+                                        .toISOString()
+                                        .split("T")[0] +
+                                      " " +
+                                      $state.timePicker2End.value
+                                  };
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -489,6 +624,7 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                   ref: ref => {
                     $refs["form"] = ref;
                   },
+                  submitSlot: null,
                   wrapperCol: { span: 16, horizontalOnly: true }
                 };
                 initializeCodeComponentStates(
@@ -517,7 +653,7 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__e8GS8
+                        sty.formField__he4E2
                       )}
                       label={
                         "\u0646\u0627\u0645 \u0641\u0639\u0627\u0644\u06cc\u062a"
@@ -531,24 +667,57 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                         }
                       ]}
                     >
-                      <AntdInput
-                        className={classNames("__wab_instance", sty.input)}
-                      />
+                      {(() => {
+                        const child$Props = {
+                          className: classNames("__wab_instance", sty.input),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          value: generateStateValueProp($state, [
+                            "input",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "input.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"input"}
+                            data-plasmic-override={overrides.input}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__oFWoy
+                        sty.formField__kDqn
                       )}
                       initialValue={"male"}
                       label={"\u062c\u0646\u0633\u06cc\u062a"}
                       name={"gender"}
                     >
                       <AntdSelect
-                        className={classNames(
-                          "__wab_instance",
-                          sty.select__fQQyw
-                        )}
+                        data-plasmic-name={"select"}
+                        data-plasmic-override={overrides.select}
+                        className={classNames("__wab_instance", sty.select)}
                         defaultStylesClassName={classNames(
                           projectcss.root_reset,
                           projectcss.plasmic_default_styles,
@@ -557,6 +726,12 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                           plasmic_antd_5_hostless_css.plasmic_tokens,
                           plasmic_plasmic_rich_components_css.plasmic_tokens
                         )}
+                        onChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "select",
+                            "value"
+                          ]).apply(null, eventArgs);
+                        }}
                         options={(() => {
                           const __composite = [
                             { type: "option", label: null, value: null },
@@ -573,23 +748,26 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                           return __composite;
                         })()}
                         placeholder={"Select..."}
-                        popupScopeClassName={sty["select__fQQyw__popup"]}
+                        popupScopeClassName={sty["select__popup"]}
+                        value={generateStateValueProp($state, [
+                          "select",
+                          "value"
+                        ])}
                       />
                     </FormItemWrapper>
                     <FormItemWrapper
                       className={classNames(
                         "__wab_instance",
-                        sty.formField__kaauK
+                        sty.formField___7MtmF
                       )}
                       initialValue={"active"}
                       label={"\u0648\u0636\u0639\u06cc\u062a"}
                       name={"status"}
                     >
                       <AntdSelect
-                        className={classNames(
-                          "__wab_instance",
-                          sty.select__aTldO
-                        )}
+                        data-plasmic-name={"select2"}
+                        data-plasmic-override={overrides.select2}
+                        className={classNames("__wab_instance", sty.select2)}
                         defaultStylesClassName={classNames(
                           projectcss.root_reset,
                           projectcss.plasmic_default_styles,
@@ -598,6 +776,12 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                           plasmic_antd_5_hostless_css.plasmic_tokens,
                           plasmic_plasmic_rich_components_css.plasmic_tokens
                         )}
+                        onChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "select2",
+                            "value"
+                          ]).apply(null, eventArgs);
+                        }}
                         options={(() => {
                           const __composite = [
                             { type: "option", label: null, value: null },
@@ -612,13 +796,382 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                           return __composite;
                         })()}
                         placeholder={"Select..."}
-                        popupScopeClassName={sty["select__aTldO__popup"]}
+                        popupScopeClassName={sty["select2__popup"]}
+                        value={generateStateValueProp($state, [
+                          "select2",
+                          "value"
+                        ])}
                       />
+                    </FormItemWrapper>
+                    <FormItemWrapper
+                      className={classNames(
+                        "__wab_instance",
+                        sty.formField__eNcw1
+                      )}
+                      initialValue={undefined}
+                      label={
+                        "\u0632\u0645\u0627\u0646 \u0627\u0646\u062a\u0634\u0627\u0631"
+                      }
+                      name={"start_date"}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: true,
+                          className: classNames("__wab_instance", sty.collapse),
+                          label2: (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ba5Mc
+                              )}
+                            >
+                              {
+                                "\u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0645\u0627\u0646"
+                              }
+                            </div>
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "open",
+                              ["collapse", "open"],
+                              AntdSingleCollapse_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          open: generateStateValueProp($state, [
+                            "collapse",
+                            "open"
+                          ]),
+                          showArrow: true
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "open",
+                              plasmicStateName: "collapse.open"
+                            }
+                          ],
+                          [],
+                          AntdSingleCollapse_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdSingleCollapse
+                            data-plasmic-name={"collapse"}
+                            data-plasmic-override={overrides.collapse}
+                            {...child$Props}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__lZpvj
+                              )}
+                            >
+                              {"Collapsible text..."}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__qf9Hu
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__d8Shh
+                                )}
+                              >
+                                <DatePicker
+                                  data-plasmic-name={"datePickerStart"}
+                                  data-plasmic-override={
+                                    overrides.datePickerStart
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.datePickerStart
+                                  )}
+                                  holidays={[]}
+                                  locale={"fa"}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePickerStart",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                    generateStateOnChangeProp($state, [
+                                      "datePickerStart",
+                                      "values"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  onMonthChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePickerStart",
+                                      "month"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  onYearChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePickerStart",
+                                      "year"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  value={generateStateValueProp($state, [
+                                    "datePickerStart",
+                                    "value"
+                                  ])}
+                                  values={generateStateValueProp($state, [
+                                    "datePickerStart",
+                                    "values"
+                                  ])}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__fdxsd
+                                  )}
+                                >
+                                  {
+                                    "\u062a\u0627\u0631\u06cc\u062e \u0627\u0646\u062a\u0634\u0627\u0631"
+                                  }
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__bHaoU
+                                )}
+                              >
+                                <TimePicker
+                                  data-plasmic-name={"timePickerStart"}
+                                  data-plasmic-override={
+                                    overrides.timePickerStart
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.timePickerStart
+                                  )}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "timePickerStart",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  value={generateStateValueProp($state, [
+                                    "timePickerStart",
+                                    "value"
+                                  ])}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__kd0M5
+                                  )}
+                                >
+                                  {
+                                    "\u062f\u0642\u06cc\u0642\u0647   :    \u0633\u0627\u0639\u062a"
+                                  }
+                                </div>
+                              </div>
+                            </div>
+                          </AntdSingleCollapse>
+                        );
+                      })()}
+                    </FormItemWrapper>
+                    <FormItemWrapper
+                      className={classNames(
+                        "__wab_instance",
+                        sty.formField__dsu5X
+                      )}
+                      hidden={false}
+                      label={
+                        "\u0632\u0645\u0627\u0646 \u067e\u0627\u06cc\u0627\u0646"
+                      }
+                      name={"end_date"}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: true,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.collapse2
+                          ),
+                          label2: (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ft7SA
+                              )}
+                            >
+                              {
+                                "\u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0645\u0627\u0646"
+                              }
+                            </div>
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "open",
+                              ["collapse2", "open"],
+                              AntdSingleCollapse_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          open: generateStateValueProp($state, [
+                            "collapse2",
+                            "open"
+                          ]),
+                          showArrow: true
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "open",
+                              plasmicStateName: "collapse2.open"
+                            }
+                          ],
+                          [],
+                          AntdSingleCollapse_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdSingleCollapse
+                            data-plasmic-name={"collapse2"}
+                            data-plasmic-override={overrides.collapse2}
+                            {...child$Props}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__fdASd
+                              )}
+                            >
+                              {"Collapsible text..."}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__eO0Q
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__dDha9
+                                )}
+                              >
+                                <DatePicker
+                                  data-plasmic-name={"datePicker2End"}
+                                  data-plasmic-override={
+                                    overrides.datePicker2End
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.datePicker2End
+                                  )}
+                                  holidays={[]}
+                                  locale={"fa"}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePicker2End",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                    generateStateOnChangeProp($state, [
+                                      "datePicker2End",
+                                      "values"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  onMonthChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePicker2End",
+                                      "month"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  onYearChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "datePicker2End",
+                                      "year"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  value={generateStateValueProp($state, [
+                                    "datePicker2End",
+                                    "value"
+                                  ])}
+                                  values={generateStateValueProp($state, [
+                                    "datePicker2End",
+                                    "values"
+                                  ])}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__y1X0D
+                                  )}
+                                >
+                                  {
+                                    "\u062a\u0627\u0631\u06cc\u062e \u067e\u0627\u06cc\u0627\u0646"
+                                  }
+                                </div>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__vQu6E
+                                )}
+                              >
+                                <TimePicker
+                                  data-plasmic-name={"timePicker2End"}
+                                  data-plasmic-override={
+                                    overrides.timePicker2End
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.timePicker2End
+                                  )}
+                                  onChange={async (...eventArgs: any) => {
+                                    generateStateOnChangeProp($state, [
+                                      "timePicker2End",
+                                      "value"
+                                    ]).apply(null, eventArgs);
+                                  }}
+                                  value={generateStateValueProp($state, [
+                                    "timePicker2End",
+                                    "value"
+                                  ])}
+                                />
+
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__es9Rf
+                                  )}
+                                >
+                                  {
+                                    "\u062f\u0642\u06cc\u0642\u0647   :    \u0633\u0627\u0639\u062a"
+                                  }
+                                </div>
+                              </div>
+                            </div>
+                          </AntdSingleCollapse>
+                        );
+                      })()}
                     </FormItemWrapper>
                     <AntdButton
                       className={classNames(
                         "__wab_instance",
-                        sty.button__utFda
+                        sty.button__wqPt6
                       )}
                       submitsForm={true}
                       type={"primary"}
@@ -627,7 +1180,7 @@ function PlasmicAdminActivityActivitesList__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__mmxzd
+                          sty.text__hPdpy
                         )}
                       >
                         {
@@ -1113,14 +1666,54 @@ const PlasmicDescendants = {
     "modal",
     "form",
     "input",
+    "select",
+    "select2",
+    "collapse",
+    "datePickerStart",
+    "timePickerStart",
+    "collapse2",
+    "datePicker2End",
+    "timePicker2End",
     "svg",
     "getActiveActivities",
     "getInActiveActivities"
   ],
   coreHeaderAdminHeader: ["coreHeaderAdminHeader"],
-  modal: ["modal", "form", "input", "svg"],
-  form: ["form", "input"],
+  modal: [
+    "modal",
+    "form",
+    "input",
+    "select",
+    "select2",
+    "collapse",
+    "datePickerStart",
+    "timePickerStart",
+    "collapse2",
+    "datePicker2End",
+    "timePicker2End",
+    "svg"
+  ],
+  form: [
+    "form",
+    "input",
+    "select",
+    "select2",
+    "collapse",
+    "datePickerStart",
+    "timePickerStart",
+    "collapse2",
+    "datePicker2End",
+    "timePicker2End"
+  ],
   input: ["input"],
+  select: ["select"],
+  select2: ["select2"],
+  collapse: ["collapse", "datePickerStart", "timePickerStart"],
+  datePickerStart: ["datePickerStart"],
+  timePickerStart: ["timePickerStart"],
+  collapse2: ["collapse2", "datePicker2End", "timePicker2End"],
+  datePicker2End: ["datePicker2End"],
+  timePicker2End: ["timePicker2End"],
   svg: ["svg"],
   getActiveActivities: ["getActiveActivities"],
   getInActiveActivities: ["getInActiveActivities"]
@@ -1134,6 +1727,14 @@ type NodeDefaultElementType = {
   modal: typeof AntdModal;
   form: typeof FormWrapper;
   input: typeof AntdInput;
+  select: typeof AntdSelect;
+  select2: typeof AntdSelect;
+  collapse: typeof AntdSingleCollapse;
+  datePickerStart: typeof DatePicker;
+  timePickerStart: typeof TimePicker;
+  collapse2: typeof AntdSingleCollapse;
+  datePicker2End: typeof DatePicker;
+  timePicker2End: typeof TimePicker;
   svg: "svg";
   getActiveActivities: typeof ApiRequest;
   getInActiveActivities: typeof ApiRequest;
@@ -1204,6 +1805,14 @@ export const PlasmicAdminActivityActivitesList = Object.assign(
     modal: makeNodeComponent("modal"),
     form: makeNodeComponent("form"),
     input: makeNodeComponent("input"),
+    select: makeNodeComponent("select"),
+    select2: makeNodeComponent("select2"),
+    collapse: makeNodeComponent("collapse"),
+    datePickerStart: makeNodeComponent("datePickerStart"),
+    timePickerStart: makeNodeComponent("timePickerStart"),
+    collapse2: makeNodeComponent("collapse2"),
+    datePicker2End: makeNodeComponent("datePicker2End"),
+    timePicker2End: makeNodeComponent("timePicker2End"),
     svg: makeNodeComponent("svg"),
     getActiveActivities: makeNodeComponent("getActiveActivities"),
     getInActiveActivities: makeNodeComponent("getInActiveActivities"),

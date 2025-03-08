@@ -4,23 +4,23 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicGlobalContextsProvider";
 
-import { PlasmicAdminActivityActivitiesList } from "../../components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityActivitiesList";
+import { PlasmicAdminActivityTest } from "@/components/plasmic/nojahan_masjed_new_code_gen_master/PlasmicAdminActivityTest";
 import { useRouter } from "next/router";
 
-function AdminActivityActivitiesList() {
-  // Use PlasmicAdminActivityActivitiesList to render this component as it was
+function AdminActivityTest() {
+  // Use PlasmicAdminActivityTest to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicAdminActivityActivitiesList are:
+  // Props you can pass into PlasmicAdminActivityTest are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicAdminActivityActivitiesList is wrapped by your project's global
+  // By default, PlasmicAdminActivityTest is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -32,10 +32,10 @@ function AdminActivityActivitiesList() {
         params={useRouter()?.query}
         query={useRouter()?.query}
       >
-        <PlasmicAdminActivityActivitiesList />
+        <PlasmicAdminActivityTest />
       </PageParamsProvider__>
     </GlobalContextsProvider>
   );
 }
 
-export default AdminActivityActivitiesList;
+export default AdminActivityTest;

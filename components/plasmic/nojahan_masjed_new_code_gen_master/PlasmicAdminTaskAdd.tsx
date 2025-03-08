@@ -68,7 +68,9 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { TimePicker } from "@/angel/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -99,10 +101,13 @@ export type PlasmicAdminTaskAdd__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   textArea?: Flex__<typeof AntdTextArea>;
   select?: Flex__<typeof AntdSelect>;
+  timePicker?: Flex__<typeof TimePicker>;
   select2?: Flex__<typeof AntdSelect>;
   select3?: Flex__<typeof AntdSelect>;
   select4?: Flex__<typeof AntdSelect>;
   button?: Flex__<typeof AntdButton>;
+  apiRequestGetActivity?: Flex__<typeof ApiRequest>;
+  apiRequestOwghat?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultAdminTaskAddProps {}
@@ -222,6 +227,96 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "apiRequestOwghat.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequestOwghat.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequestOwghat.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "month",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return new Date(
+                $state.apiRequestGetActivity.data[0].start_date
+              ).toLocaleString("en-US", {
+                month: "numeric",
+                calendar: "persian"
+              });
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "apiRequestGetActivity.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequestGetActivity.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequestGetActivity.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "day",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return new Date(
+                $state.apiRequestGetActivity.data[0].start_date
+              ).toLocaleString("en-US", {
+                day: "numeric",
+                calendar: "persian"
+              });
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "timePicker.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "00:00"
       }
     ],
     [$props, $ctx, $refs]
@@ -807,22 +902,22 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
                           { type: "option", label: null, value: null },
                           { type: "option", label: null, value: null },
                           { type: "option", label: null, value: null },
-                          { type: "option", label: null, value: null },
-                          { type: "option", label: null, value: null },
                           { type: "option", label: null, value: null }
                         ];
-                        __composite["0"]["label"] = "\u0635\u0628\u062d";
-                        __composite["0"]["value"] = "\u0635\u0628\u062d";
-                        __composite["1"]["label"] = "\u0638\u0647\u0631";
-                        __composite["1"]["value"] = "\u0638\u0647\u0631";
-                        __composite["2"]["label"] = "\u0639\u0635\u0631";
-                        __composite["2"]["value"] = "\u0639\u0635\u0631";
-                        __composite["3"]["label"] = "\u0645\u063a\u0631\u0628";
-                        __composite["3"]["value"] = "\u0645\u063a\u0631\u0628";
-                        __composite["4"]["label"] = "\u0639\u0634\u0627\u0621";
-                        __composite["4"]["value"] = "\u0639\u0634\u0627\u0621";
-                        __composite["5"]["label"] = "\u0622\u0632\u0627\u062f";
-                        __composite["5"]["value"] = "\u0622\u0632\u0627\u062f";
+                        __composite["0"]["label"] =
+                          "\u0627\u0630\u0627\u0646 \u0635\u0628\u062d";
+                        __composite["0"]["value"] =
+                          "\u0627\u0630\u0627\u0646 \u0635\u0628\u062d";
+                        __composite["1"]["label"] =
+                          "\u0627\u0630\u0627\u0646 \u0638\u0647\u0631";
+                        __composite["1"]["value"] =
+                          "\u0627\u0630\u0627\u0646 \u0638\u0647\u0631";
+                        __composite["2"]["label"] =
+                          "\u0627\u0630\u0627\u0646 \u0645\u063a\u0631\u0628";
+                        __composite["2"]["value"] =
+                          "\u0627\u0630\u0627\u0646 \u0645\u063a\u0631\u0628";
+                        __composite["3"]["label"] = "\u0622\u0632\u0627\u062f";
+                        __composite["3"]["value"] = "\u0622\u0632\u0627\u062f";
                         return __composite;
                       })()}
                       placeholder={
@@ -843,6 +938,23 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
                       ])}
                     />
                   </FormItemWrapper>
+                  <TimePicker
+                    data-plasmic-name={"timePicker"}
+                    data-plasmic-override={overrides.timePicker}
+                    className={classNames("__wab_instance", sty.timePicker)}
+                    notShowExclude={false}
+                    onChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "timePicker",
+                        "value"
+                      ]).apply(null, eventArgs);
+                    }}
+                    value={generateStateValueProp($state, [
+                      "timePicker",
+                      "value"
+                    ])}
+                  />
+
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
@@ -1078,6 +1190,158 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
                       }
                     </div>
                   </AntdButton>
+                  <ApiRequest
+                    data-plasmic-name={"apiRequestGetActivity"}
+                    data-plasmic-override={overrides.apiRequestGetActivity}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.apiRequestGetActivity
+                    )}
+                    config={(() => {
+                      try {
+                        return {
+                          headers: { "x-token": $$.me()?.token }
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    errorDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vY8R
+                        )}
+                      >
+                        {"Error fetching data"}
+                      </div>
+                    }
+                    loadingDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rgAsf
+                        )}
+                      >
+                        {
+                          "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
+                        }
+                      </div>
+                    }
+                    method={"GET"}
+                    onError={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestGetActivity",
+                        "error"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onLoading={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestGetActivity",
+                        "loading"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onSuccess={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestGetActivity",
+                        "data"
+                      ]).apply(null, eventArgs);
+                    }}
+                    params={(() => {
+                      try {
+                        return {
+                          activity_id: $ctx.params.activityId
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    url={"https://noapi.darkube.app/webhook/activity"}
+                  />
+
+                  <ApiRequest
+                    data-plasmic-name={"apiRequestOwghat"}
+                    data-plasmic-override={overrides.apiRequestOwghat}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.apiRequestOwghat
+                    )}
+                    errorDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rFybU
+                        )}
+                      >
+                        {"Error fetching data"}
+                      </div>
+                    }
+                    loadingDisplay={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yioi0
+                        )}
+                      >
+                        {
+                          "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a ..."
+                        }
+                      </div>
+                    }
+                    method={"GET"}
+                    onError={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestOwghat",
+                        "error"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onLoading={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestOwghat",
+                        "loading"
+                      ]).apply(null, eventArgs);
+                    }}
+                    onSuccess={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "apiRequestOwghat",
+                        "data"
+                      ]).apply(null, eventArgs);
+                    }}
+                    params={(() => {
+                      try {
+                        return {
+                          city: "قم",
+                          mont: $state.month,
+                          day: $state.day
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    url={"https://api.keybit.ir/owghat"}
+                  />
                 </FormWrapper>
               );
             })()}
@@ -1098,10 +1362,13 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
+    "timePicker",
     "select2",
     "select3",
     "select4",
-    "button"
+    "button",
+    "apiRequestGetActivity",
+    "apiRequestOwghat"
   ],
   coreHeaderAdminHeader: ["coreHeaderAdminHeader"],
   freeBox: [
@@ -1111,10 +1378,13 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
+    "timePicker",
     "select2",
     "select3",
     "select4",
-    "button"
+    "button",
+    "apiRequestGetActivity",
+    "apiRequestOwghat"
   ],
   addTask: [
     "addTask",
@@ -1122,19 +1392,25 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
+    "timePicker",
     "select2",
     "select3",
     "select4",
-    "button"
+    "button",
+    "apiRequestGetActivity",
+    "apiRequestOwghat"
   ],
   input3: ["input3"],
   input2: ["input2"],
   textArea: ["textArea"],
   select: ["select"],
+  timePicker: ["timePicker"],
   select2: ["select2"],
   select3: ["select3"],
   select4: ["select4"],
-  button: ["button"]
+  button: ["button"],
+  apiRequestGetActivity: ["apiRequestGetActivity"],
+  apiRequestOwghat: ["apiRequestOwghat"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1148,10 +1424,13 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   textArea: typeof AntdTextArea;
   select: typeof AntdSelect;
+  timePicker: typeof TimePicker;
   select2: typeof AntdSelect;
   select3: typeof AntdSelect;
   select4: typeof AntdSelect;
   button: typeof AntdButton;
+  apiRequestGetActivity: typeof ApiRequest;
+  apiRequestOwghat: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1221,10 +1500,13 @@ export const PlasmicAdminTaskAdd = Object.assign(
     input2: makeNodeComponent("input2"),
     textArea: makeNodeComponent("textArea"),
     select: makeNodeComponent("select"),
+    timePicker: makeNodeComponent("timePicker"),
     select2: makeNodeComponent("select2"),
     select3: makeNodeComponent("select3"),
     select4: makeNodeComponent("select4"),
     button: makeNodeComponent("button"),
+    apiRequestGetActivity: makeNodeComponent("apiRequestGetActivity"),
+    apiRequestOwghat: makeNodeComponent("apiRequestOwghat"),
 
     // Metadata about props expected for PlasmicAdminTaskAdd
     internalVariantProps: PlasmicAdminTaskAdd__VariantProps,
