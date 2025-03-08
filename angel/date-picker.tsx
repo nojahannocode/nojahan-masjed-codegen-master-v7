@@ -138,7 +138,7 @@ export const DatePicker = ({
 export const datePickerMeta: CodeComponentMeta<any> = {
   name: "DatePicker",
   displayName: "angel/DatePicker",
-  importPath: "@/angel/components/date-picker",
+  importPath: "@/angel/date-picker",
   props: {
     value: { type: "number", hidden: (ps) => ps.mode === "multiple" },
     values: {

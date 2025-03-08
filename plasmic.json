@@ -1683,13 +1683,13 @@
           "id": "koiF6B3Ak70B",
           "name": "DatePicker",
           "displayName": "DatePicker",
-          "componentImportPath": "@/angel/components/date-picker"
+          "componentImportPath": "@/angel/date-picker"
         },
         {
           "id": "y3_mmDdIpKkL",
           "name": "TimePicker",
           "displayName": "TimePicker",
-          "componentImportPath": "@/angel/components/time-picker"
+          "componentImportPath": "@/angel/time-picker"
         }
       ],
       "customFunctions": [

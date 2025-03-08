@@ -36,7 +36,7 @@ export const TimePicker = ({
 export const timePickerMeta: CodeComponentMeta<any> = {
   name: "TimePicker",
   displayName: "angel/TimePicker",
-  importPath: "@/angel/components/time-picker",
+  importPath: "@/angel/time-picker",
   props: {
     value: { type: "string", defaultValue: "00:00" },
     hourExclude: {

@@ -164,10 +164,6 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.timePicker:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .formField__vYkJg:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;

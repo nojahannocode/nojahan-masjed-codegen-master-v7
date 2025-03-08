@@ -68,7 +68,6 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { TimePicker } from "@/angel/components/time-picker"; // plasmic-import: y3_mmDdIpKkL/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { ApiRequest } from "@/angel/ApiRequest"; // plasmic-import: ROItC2WG7mWi/codeComponent
 
@@ -101,7 +100,6 @@ export type PlasmicAdminTaskAdd__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   textArea?: Flex__<typeof AntdTextArea>;
   select?: Flex__<typeof AntdSelect>;
-  timePicker?: Flex__<typeof TimePicker>;
   select2?: Flex__<typeof AntdSelect>;
   select3?: Flex__<typeof AntdSelect>;
   select4?: Flex__<typeof AntdSelect>;
@@ -311,12 +309,6 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "timePicker.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "00:00"
       }
     ],
     [$props, $ctx, $refs]
@@ -951,23 +943,6 @@ function PlasmicAdminTaskAdd__RenderFunc(props: {
                       ])}
                     />
                   </FormItemWrapper>
-                  <TimePicker
-                    data-plasmic-name={"timePicker"}
-                    data-plasmic-override={overrides.timePicker}
-                    className={classNames("__wab_instance", sty.timePicker)}
-                    notShowExclude={false}
-                    onChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "timePicker",
-                        "value"
-                      ]).apply(null, eventArgs);
-                    }}
-                    value={generateStateValueProp($state, [
-                      "timePicker",
-                      "value"
-                    ])}
-                  />
-
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
@@ -1375,7 +1350,6 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
-    "timePicker",
     "select2",
     "select3",
     "select4",
@@ -1391,7 +1365,6 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
-    "timePicker",
     "select2",
     "select3",
     "select4",
@@ -1405,7 +1378,6 @@ const PlasmicDescendants = {
     "input2",
     "textArea",
     "select",
-    "timePicker",
     "select2",
     "select3",
     "select4",
@@ -1417,7 +1389,6 @@ const PlasmicDescendants = {
   input2: ["input2"],
   textArea: ["textArea"],
   select: ["select"],
-  timePicker: ["timePicker"],
   select2: ["select2"],
   select3: ["select3"],
   select4: ["select4"],
@@ -1437,7 +1408,6 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   textArea: typeof AntdTextArea;
   select: typeof AntdSelect;
-  timePicker: typeof TimePicker;
   select2: typeof AntdSelect;
   select3: typeof AntdSelect;
   select4: typeof AntdSelect;
@@ -1513,7 +1483,6 @@ export const PlasmicAdminTaskAdd = Object.assign(
     input2: makeNodeComponent("input2"),
     textArea: makeNodeComponent("textArea"),
     select: makeNodeComponent("select"),
-    timePicker: makeNodeComponent("timePicker"),
     select2: makeNodeComponent("select2"),
     select3: makeNodeComponent("select3"),
     select4: makeNodeComponent("select4"),
